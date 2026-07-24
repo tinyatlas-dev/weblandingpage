@@ -1,0 +1,82 @@
+/* Hallmark · macrostructure: Split Studio · H2 knobs: ratio=5/7, right=orbit-of-3, divider=negative-space
+ * theme: custom · vibe: "nocturnal studio, glass depth, editorial"
+ * paper: oklch(13% 0.012 250) · accent: oklch(72% 0.13 230) cool
+ * display: Instrument Serif · body: Geist · outlier: Geist Mono
+ * axes: dark / roman-serif / cool · enrichment: 3D float + purposeful glass
+ * nav: N5 Floating pill · footer: Ft5 Statement · tone: atmospheric luxury
+ * genre: custom (tuned) · studied: no
+ * Hallmark · pre-emit critique: P5 H5 E4 S4 R4 V5
+ * contrast: pass (40–41) · nav: N5 · footer: Ft5 · slop: pass (42–45)
+ */
+
+:root {
+  /* Colour — cool nocturnal atlas */
+  --color-paper: oklch(13% 0.012 250);
+  --color-paper-2: oklch(17% 0.014 250);
+  --color-paper-3: oklch(21% 0.016 248);
+  --color-rule: oklch(30% 0.014 250);
+  --color-rule-2: oklch(26% 0.012 250);
+  --color-neutral: oklch(58% 0.012 250);
+  --color-muted: oklch(72% 0.01 248);
+  --color-ink: oklch(94% 0.008 250);
+  --color-ink-soft: oklch(78% 0.014 248);
+  --color-accent: oklch(72% 0.13 230);
+  --color-accent-soft: oklch(72% 0.13 230 / 0.18);
+  --color-focus: oklch(74% 0.16 230);
+  --color-accent-ink: oklch(14% 0.02 250);
+  --color-glass: oklch(94% 0.01 250 / 0.06);
+  --color-glass-border: oklch(94% 0.01 250 / 0.14);
+  --color-glow: oklch(72% 0.13 230 / 0.22);
+  --color-bloom-mid: oklch(55% 0.08 250 / 0.35);
+  --color-bloom-low: oklch(40% 0.06 230 / 0.28);
+
+  /* Type */
+  --font-display: var(--font-instrument), "Iowan Old Style", "Palatino Linotype",
+    Palatino, serif;
+  --font-body: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Scale — perfect fourth */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.333rem;
+  --text-2xl: 1.777rem;
+  --text-3xl: 2.369rem;
+  --text-4xl: 3.157rem;
+  --text-display-s: clamp(2.25rem, 4vw + 1rem, 3.5rem);
+  --text-display: clamp(2.75rem, 5.5vw + 1rem, 4.75rem);
+
+  /* Space — 4pt */
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 9rem;
+  --page-gutter: clamp(1rem, 4vw, 1.5rem);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+
+  /* Chrome */
+  --rule-hair: 1px;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-pill: 999px;
+  --z-base: 1;
+  --z-raised: 10;
+  --z-sticky: 200;
+  --z-modal: 400;
+}

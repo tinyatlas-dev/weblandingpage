@@ -14,18 +14,17 @@ export default function TermsPage() {
   return (
     <>
       <Navigation />
-      <main className="mx-auto max-w-3xl px-5 pt-28 pb-20 sm:px-8 sm:pt-32">
-        <p className="text-[13px] font-semibold tracking-[0.18em] text-ink/45 uppercase">
-          Legal
-        </p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-ink sm:text-5xl">
+      <main className="page-shell max-w-3xl pt-28 pb-20 sm:pt-32">
+        <h1 className="font-display text-[length:var(--text-display-s)] leading-[1.05] tracking-[-0.02em] text-[var(--color-ink)]">
           Terms of Service
         </h1>
-        <p className="mt-4 text-ink-soft">Last updated: July 24, 2026</p>
+        <p className="mt-4 text-[var(--color-ink-soft)]">
+          Last updated: July 24, 2026
+        </p>
 
-        <div className="mt-10 space-y-8 text-[16px] leading-relaxed text-ink-soft">
+        <div className="mt-10 space-y-8 text-[16px] leading-relaxed text-[var(--color-ink-soft)]">
           <section>
-            <h2 className="text-xl font-semibold tracking-tight text-ink">
+            <h2 className="font-display text-xl tracking-[-0.02em] text-[var(--color-ink)]">
               Agreement
             </h2>
             <p className="mt-3">
@@ -34,7 +33,7 @@ export default function TermsPage() {
             </p>
           </section>
           <section>
-            <h2 className="text-xl font-semibold tracking-tight text-ink">
+            <h2 className="font-display text-xl tracking-[-0.02em] text-[var(--color-ink)]">
               Use of services
             </h2>
             <p className="mt-3">
@@ -43,7 +42,7 @@ export default function TermsPage() {
             </p>
           </section>
           <section>
-            <h2 className="text-xl font-semibold tracking-tight text-ink">
+            <h2 className="font-display text-xl tracking-[-0.02em] text-[var(--color-ink)]">
               Disclaimer
             </h2>
             <p className="mt-3">
@@ -53,14 +52,14 @@ export default function TermsPage() {
             </p>
           </section>
           <section>
-            <h2 className="text-xl font-semibold tracking-tight text-ink">
+            <h2 className="font-display text-xl tracking-[-0.02em] text-[var(--color-ink)]">
               Contact
             </h2>
             <p className="mt-3">
               For terms-related questions, email{" "}
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
-                className="font-medium text-ink underline-offset-4 hover:underline"
+                className="font-medium text-[var(--color-ink)] underline-offset-4 hover:underline"
               >
                 {CONTACT_EMAIL}
               </a>
@@ -71,7 +70,7 @@ export default function TermsPage() {
 
         <Link
           href="/"
-          className="mt-12 inline-flex text-[15px] font-medium text-ink transition-colors hover:text-atlas-blue"
+          className="mt-12 inline-flex text-[15px] font-medium text-[var(--color-ink)] transition-colors duration-[var(--dur-micro)] hover:text-[var(--color-accent)]"
         >
           ← Back to home
         </Link>

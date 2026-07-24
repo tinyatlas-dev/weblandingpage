@@ -1,0 +1,12 @@
+{
+  "scanned_at": "2026-07-24",
+  "framework": "Next.js 15 (App Router)",
+  "fonts": ["Inter (next/font)", "Geist Mono (next/font)"],
+  "palette": "hex + oklch custom properties in app/globals.css :root; brand accents atlas-blue/purple/cyan",
+  "motion": "framer-motion 12 (motion-on)",
+  "spacing": "Tailwind v4 default + --radius scale; no custom --space-* yet",
+  "design_md": false,
+  "hallmark_log": false,
+  "preserve": ["framework", "route tree", "content in lib/data.ts + lib/constants.ts", "framer-motion availability"],
+  "introduce": ["macrostructure", "Hallmark token system", "microinteraction discipline", "slop-test gates", "hero enrichment recipe"]
+}

@@ -21,8 +21,10 @@ type DeviceProps = {
   floatDelay?: number;
   rotateY?: number;
   rotateZ?: number;
+  rotateX?: number;
   depth?: number;
   scale?: number;
+  priority?: boolean;
 };
 
 function PhoneDevice({
@@ -32,28 +34,37 @@ function PhoneDevice({
   floatDelay = 0,
   rotateY = 0,
   rotateZ = 0,
+  rotateX = 0,
   depth = 1,
   scale = 1,
+  priority = false,
 }: DeviceProps) {
   const reduced = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
-  const parallax = useSpringParallax(10 * depth);
+  const parallax = useSpringParallax(12 * depth);
 
   const tiltX = useMotionValue(0);
   const tiltY = useMotionValue(0);
   const springTiltX = useSpring(tiltX, { stiffness: 160, damping: 18 });
   const springTiltY = useSpring(tiltY, { stiffness: 160, damping: 18 });
-  const combinedRotateY = useTransform(springTiltY, (value) => rotateY + value);
+  const combinedRotateX = useTransform(
+    springTiltX,
+    (value) => rotateX + value
+  );
+  const combinedRotateY = useTransform(
+    springTiltY,
+    (value) => rotateY + value
+  );
 
-  const transform = useMotionTemplate`translate3d(${parallax.x}px, ${parallax.y}px, 0) perspective(1400px) rotateX(${springTiltX}deg) rotateY(${combinedRotateY}deg) rotateZ(${rotateZ}deg) scale(${scale})`;
+  const transform = useMotionTemplate`translate3d(${parallax.x}px, ${parallax.y}px, 0) perspective(1600px) rotateX(${combinedRotateX}deg) rotateY(${combinedRotateY}deg) rotateZ(${rotateZ}deg) scale(${scale})`;
 
   const onMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (reduced || !ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const px = (event.clientX - rect.left) / rect.width - 0.5;
     const py = (event.clientY - rect.top) / rect.height - 0.5;
-    tiltX.set(py * -6);
-    tiltY.set(px * 8);
+    tiltX.set(py * -7);
+    tiltY.set(px * 9);
   };
 
   const onLeave = () => {
@@ -64,9 +75,9 @@ function PhoneDevice({
   return (
     <motion.div
       className={cn("relative", className)}
-      animate={reduced ? undefined : { y: [0, -12, 0] }}
+      animate={reduced ? undefined : { y: [0, -14, 0] }}
       transition={{
-        duration: 6.2 + floatDelay,
+        duration: 6.4 + floatDelay,
         repeat: Infinity,
         ease: "easeInOut",
         delay: floatDelay,
@@ -81,94 +92,97 @@ function PhoneDevice({
       >
         <div
           aria-hidden
-          className="absolute -inset-x-8 bottom-[-10%] h-[22%] rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(15,23,42,0.28),transparent_70%)] blur-xl"
+          className="absolute -inset-x-10 bottom-[-12%] h-[24%] rounded-[100%] bg-[radial-gradient(ellipse_at_center,oklch(0%_0_0/0.45),transparent_70%)] blur-xl"
         />
 
         <div
           aria-hidden
-          className="absolute inset-[8%] -z-10 rounded-[2.5rem] bg-[radial-gradient(circle_at_50%_30%,rgba(37,99,235,0.25),rgba(6,182,212,0.12),transparent_70%)] blur-2xl"
+          className="absolute inset-[6%] -z-10 rounded-[2.5rem] bg-[radial-gradient(circle_at_50%_30%,var(--color-glow),transparent_70%)] blur-2xl"
         />
 
         <div
           className={cn(
-            "relative aspect-[9/19.2] w-[min(44vw,220px)] overflow-hidden rounded-[2.05rem]",
-            "border border-white/80 bg-gradient-to-br from-[#1a2234] via-[#0b1220] to-[#151b2b] p-[8px]",
-            "shadow-[0_40px_90px_rgba(15,23,42,0.32),0_8px_24px_rgba(15,23,42,0.18),inset_0_1px_0_rgba(255,255,255,0.25)]",
-            "sm:w-[236px] md:w-[258px] lg:rounded-[2.4rem] lg:p-[9px]"
+            "relative aspect-[9/19.2] w-[min(42vw,210px)] overflow-hidden rounded-[2.05rem]",
+            "border border-[var(--color-glass-border)] bg-[linear-gradient(160deg,var(--color-paper-3),var(--color-paper))] p-[7px]",
+            "shadow-[0_40px_90px_oklch(0%_0_0/0.55),0_8px_24px_oklch(0%_0_0/0.35),inset_0_1px_0_var(--color-glass-border)]",
+            "sm:w-[230px] md:w-[248px] lg:rounded-[2.35rem] lg:p-[8px]"
           )}
         >
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 rounded-[inherit] bg-[linear-gradient(135deg,rgba(255,255,255,0.28),transparent_28%,transparent_72%,rgba(255,255,255,0.08))]"
+            className="pointer-events-none absolute inset-0 rounded-[inherit] bg-[linear-gradient(135deg,oklch(94%_0.01_250/0.22),transparent_30%,transparent_70%,oklch(94%_0.01_250/0.06))]"
           />
 
-          <div className="relative h-full overflow-hidden rounded-[1.55rem] bg-white lg:rounded-[1.9rem]">
-            <div className="absolute left-1/2 top-2.5 z-10 h-[22px] w-[88px] -translate-x-1/2 rounded-full bg-[#0b1220] shadow-[inset_0_1px_2px_rgba(255,255,255,0.12)]" />
+          <div className="relative h-full overflow-hidden rounded-[1.55rem] bg-[var(--color-paper-2)] lg:rounded-[1.85rem]">
+            <div className="absolute left-1/2 top-2.5 z-10 h-[22px] w-[88px] -translate-x-1/2 rounded-full bg-[var(--color-paper)] shadow-[inset_0_1px_2px_var(--color-glass-border)]" />
             <Image
               src={screenshot}
-              alt={name + " app screenshot"}
+              alt={`${name} app screenshot`}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 44vw, 258px"
-              priority
+              sizes="(max-width: 768px) 42vw, 248px"
+              priority={priority}
             />
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,0.28)_0%,rgba(255,255,255,0.05)_22%,transparent_42%)]"
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,oklch(94%_0.01_250/0.18)_0%,oklch(94%_0.01_250/0.04)_22%,transparent_42%)]"
             />
           </div>
         </div>
-
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-[10%] top-[92%] h-24 opacity-[0.22]"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(15,23,42,0.35), transparent)",
-            maskImage: "linear-gradient(to bottom, black, transparent 80%)",
-            transform: "scaleY(-1)",
-            filter: "blur(2px)",
-          }}
-        />
       </motion.div>
     </motion.div>
   );
 }
 
-export function FloatingDevices() {
+export function FloatingDevices({
+  compact = false,
+}: {
+  compact?: boolean;
+}) {
   const [left, center, right] = apps;
 
   return (
-    <div className="relative mx-auto mt-14 flex h-[440px] w-full max-w-5xl items-end justify-center [perspective:1600px] sm:mt-16 sm:h-[500px] md:h-[560px]">
+    <div
+      className={cn(
+        "relative mx-auto flex w-full max-w-xl items-end justify-center [perspective:1800px]",
+        compact
+          ? "h-[380px] sm:h-[440px] md:h-[500px]"
+          : "mt-10 h-[420px] sm:mt-12 sm:h-[500px] md:h-[560px]"
+      )}
+    >
       <PhoneDevice
         screenshot={left.screenshot}
         name={left.name}
-        className="absolute left-[2%] top-[10%] z-10 hidden sm:block md:left-[6%]"
+        className="absolute left-[-4%] top-[8%] z-10 hidden sm:block md:left-[-2%]"
         floatDelay={0.35}
-        rotateY={28}
-        rotateZ={-8}
-        depth={0.65}
-        scale={0.86}
+        rotateY={32}
+        rotateX={6}
+        rotateZ={-10}
+        depth={0.7}
+        scale={0.82}
       />
       <PhoneDevice
         screenshot={center.screenshot}
         name={center.name}
         className="relative z-30"
         floatDelay={0}
-        rotateY={0}
+        rotateY={-6}
+        rotateX={4}
         rotateZ={0}
-        depth={1.15}
+        depth={1.2}
         scale={1}
+        priority
       />
       <PhoneDevice
         screenshot={right.screenshot}
         name={right.name}
-        className="absolute right-[2%] top-[16%] z-10 hidden sm:block md:right-[6%]"
+        className="absolute right-[-4%] top-[14%] z-20 hidden sm:block md:right-[-2%]"
         floatDelay={0.7}
-        rotateY={-28}
-        rotateZ={8}
-        depth={0.65}
-        scale={0.86}
+        rotateY={-34}
+        rotateX={8}
+        rotateZ={10}
+        depth={0.75}
+        scale={0.84}
       />
     </div>
   );

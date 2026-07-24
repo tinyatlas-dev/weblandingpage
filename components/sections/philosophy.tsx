@@ -17,74 +17,59 @@ export function Philosophy() {
   const opacity = useTransform(
     scrollYProgress,
     [0.08, 0.32, 0.72, 0.95],
-    [0, 1, 1, 0.35]
+    [0, 1, 1, 0.4]
   );
-  const y = useTransform(scrollYProgress, [0.08, 0.38], [64, 0]);
-  const scale = useTransform(scrollYProgress, [0.1, 0.4], [0.96, 1]);
-  const glowY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const glowYAlt = useTransform(scrollYProgress, [0, 1], ["10%", "-20%"]);
+  const y = useTransform(scrollYProgress, [0.08, 0.38], [40, 0]);
 
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-[#060910] py-32 text-white sm:py-40"
+      className="relative overflow-hidden border-y border-[var(--color-rule)] bg-[var(--color-paper-2)] py-[var(--space-3xl)] sm:py-[var(--space-4xl)]"
       aria-labelledby="philosophy-heading"
     >
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -left-24 top-0 h-[70%] w-[70%] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.28),transparent_68%)] blur-3xl"
-        style={{ y: reduced ? 0 : glowY }}
-      />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -right-20 bottom-0 h-[65%] w-[65%] rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.2),transparent_68%)] blur-3xl"
-        style={{ y: reduced ? 0 : glowYAlt }}
-      />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(124,58,237,0.12),transparent_55%)]"
+        className="pointer-events-none absolute -left-24 top-0 h-[70%] w-[55%] rounded-full bg-[radial-gradient(circle,var(--color-glow),transparent_68%)] blur-3xl"
       />
-      <div className="noise-overlay absolute inset-0 opacity-[0.09]" />
+      <div className="noise-overlay absolute inset-0 opacity-[0.06]" />
 
       <motion.div
-        style={reduced ? undefined : { opacity, y, scale }}
-        className="relative mx-auto max-w-5xl px-5 text-center sm:px-8"
+        style={reduced ? undefined : { opacity, y }}
+        className="page-shell relative grid gap-[var(--space-xl)] lg:grid-cols-[1.1fr_0.9fr] lg:items-end"
       >
-        <p className="mb-10 text-[12px] font-semibold tracking-[0.24em] text-white/35 uppercase sm:text-[13px]">
-          Philosophy
-        </p>
-        <h2 id="philosophy-heading" className="sr-only">
-          Simple. Fast. Thoughtful.
-        </h2>
-        <div className="flex flex-col items-center gap-1 sm:gap-2">
-          {words.map((word, index) => (
-            <motion.span
-              key={word}
-              initial={
-                reduced ? false : { opacity: 0, y: 40, filter: "blur(14px)" }
-              }
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, amount: 0.7 }}
-              transition={{
-                duration: 0.85,
-                delay: reduced ? 0 : index * 0.14,
-                ease: easeOutExpo,
-              }}
-              className="block bg-[linear-gradient(180deg,#ffffff_30%,rgba(255,255,255,0.72))] bg-clip-text text-[clamp(3rem,10vw,7rem)] leading-[0.92] font-semibold tracking-[-0.055em] text-transparent"
-            >
-              {word}
-            </motion.span>
-          ))}
+        <div>
+          <h2 id="philosophy-heading" className="sr-only">
+            Simple. Fast. Thoughtful.
+          </h2>
+          <div className="flex flex-col gap-1">
+            {words.map((word, index) => (
+              <motion.span
+                key={word}
+                initial={reduced ? false : { opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.7 }}
+                transition={{
+                  duration: 0.5,
+                  delay: reduced ? 0 : index * 0.1,
+                  ease: easeOutExpo,
+                }}
+                className="font-display block text-[clamp(2.75rem,8vw,6rem)] leading-[0.94] tracking-[-0.03em] text-[var(--color-ink)]"
+              >
+                {word}
+              </motion.span>
+            ))}
+          </div>
         </div>
+
         <motion.p
-          initial={reduced ? false : { opacity: 0, y: 24 }}
+          initial={reduced ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.75, delay: reduced ? 0 : 0.4 }}
-          className="mx-auto mt-12 max-w-xl text-[17px] leading-[1.7] text-white/50"
+          transition={{ duration: 0.45, delay: reduced ? 0 : 0.28 }}
+          className="max-w-[36ch] text-[length:var(--text-lg)] leading-[1.7] text-[var(--color-ink-soft)] lg:justify-self-end lg:pb-3"
         >
-          We believe the best apps get out of the way. Clarity over clutter.
-          Speed over spectacle. Care in every interaction.
+          The best apps get out of the way. Clarity over clutter. Speed over
+          spectacle. Care in every interaction.
         </motion.p>
       </motion.div>
     </section>

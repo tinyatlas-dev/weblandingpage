@@ -1,72 +1,52 @@
 "use client";
 
-import { Mail } from "lucide-react";
 import Link from "next/link";
-import { MagneticButton } from "@/components/magnetic-button";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { CONTACT_EMAIL } from "@/lib/constants";
 
 export function Support() {
   return (
-    <section id="support" className="relative scroll-mt-24 py-28 sm:py-36">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(239,246,255,0.8),transparent_65%)]"
-      />
-
-      <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
+    <section id="support" className="section-pad relative scroll-mt-28">
+      <div className="page-shell">
         <ScrollReveal>
-          <div className="relative overflow-hidden rounded-[2.25rem] border border-white/70 bg-white/60 px-8 py-14 shadow-[0_28px_80px_rgba(15,23,42,0.07)] backdrop-blur-xl sm:px-12 sm:py-16">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.08),transparent_50%),radial-gradient(circle_at_bottom,rgba(6,182,212,0.08),transparent_45%)]"
-            />
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent"
-            />
-
-            <div className="relative">
-              <p className="mb-4 text-[12px] font-semibold tracking-[0.22em] text-ink/40 uppercase sm:text-[13px]">
-                Support
-              </p>
-              <h2 className="text-balance text-[2.5rem] font-semibold tracking-[-0.05em] text-ink sm:text-5xl">
-                Need help?
+          <div className="grid items-end gap-[var(--space-xl)] border-t border-[var(--color-rule)] pt-[var(--space-2xl)] lg:grid-cols-[1.1fr_0.9fr] lg:gap-[var(--space-3xl)]">
+            <div className="min-w-0">
+              <h2 className="text-balance text-[length:var(--text-display-s)] leading-[1.05] text-[var(--color-ink)]">
+                Need a hand?
               </h2>
-              <p className="mx-auto mt-5 max-w-md text-[17px] leading-[1.7] text-ink-soft">
+              <p className="mt-5 max-w-[36ch] text-[length:var(--text-lg)] leading-[1.7] text-[var(--color-ink-soft)]">
                 We read every message. Reach out anytime — we&apos;re here to
                 help.
               </p>
+            </div>
 
+            <div className="min-w-0">
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
-                className="mt-9 inline-flex items-center gap-2.5 text-xl font-semibold tracking-tight text-ink transition-all duration-300 hover:gap-3.5 hover:text-atlas-blue sm:text-2xl"
+                className="font-display inline-block break-all text-[clamp(1.25rem,2.5vw,1.75rem)] tracking-[-0.02em] text-[var(--color-ink)] underline decoration-[var(--color-rule)] underline-offset-4 transition-colors duration-[var(--dur-micro)] hover:text-[var(--color-accent)] hover:decoration-[var(--color-accent)]"
               >
-                <span className="inline-flex size-10 items-center justify-center rounded-full bg-ink/[0.04] text-ink">
-                  <Mail className="size-5" aria-hidden />
-                </span>
                 {CONTACT_EMAIL}
               </a>
 
-              <div className="mt-11 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+              <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/privacy"
-                  className="inline-flex min-w-[160px] items-center justify-center rounded-full border border-slate-900/8 bg-white/75 px-6 py-3 text-[15px] font-medium text-ink shadow-[0_8px_24px_rgba(15,23,42,0.04)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_14px_32px_rgba(15,23,42,0.08)]"
+                  className="glass-surface inline-flex h-11 items-center justify-center whitespace-nowrap rounded-[var(--radius-pill)] px-5 text-[14px] font-medium text-[var(--color-ink)] transition-colors duration-[var(--dur-short)] hover:bg-[var(--color-paper-3)]"
                 >
                   Privacy Policy
                 </Link>
                 <Link
                   href="/terms"
-                  className="inline-flex min-w-[160px] items-center justify-center rounded-full border border-slate-900/8 bg-white/75 px-6 py-3 text-[15px] font-medium text-ink shadow-[0_8px_24px_rgba(15,23,42,0.04)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_14px_32px_rgba(15,23,42,0.08)]"
+                  className="glass-surface inline-flex h-11 items-center justify-center whitespace-nowrap rounded-[var(--radius-pill)] px-5 text-[14px] font-medium text-[var(--color-ink)] transition-colors duration-[var(--dur-short)] hover:bg-[var(--color-paper-3)]"
                 >
                   Terms of Service
                 </Link>
-                <MagneticButton
+                <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="min-w-[160px] bg-ink text-white shadow-[0_16px_40px_rgba(15,23,42,0.18)] hover:bg-slate-800"
+                  className="inline-flex h-11 items-center justify-center whitespace-nowrap rounded-[var(--radius-pill)] bg-[var(--color-ink)] px-5 text-[14px] font-medium text-[var(--color-paper)] transition-[transform,opacity] duration-[var(--dur-micro)] hover:opacity-90 active:translate-y-px"
                 >
-                  Contact Support
-                </MagneticButton>
+                  Contact support
+                </a>
               </div>
             </div>
           </div>
