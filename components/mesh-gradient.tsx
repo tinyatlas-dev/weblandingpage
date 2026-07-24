@@ -34,7 +34,7 @@ export function MeshGradient() {
         }}
       />
 
-      <div className="noise-overlay absolute inset-0 opacity-[0.05] mix-blend-soft-light" />
+      <div className="noise-overlay absolute inset-0 mix-blend-soft-light" />
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_40%,var(--color-paper)_100%)]" />
     </div>
   );

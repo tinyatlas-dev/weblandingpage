@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import Script from "next/script";
 import { JsonLd } from "@/components/json-ld";
 import {
   CONTACT_EMAIL,
@@ -7,6 +8,7 @@ import {
   SITE_NAME,
   SITE_URL,
 } from "@/lib/constants";
+import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
 const geist = Geist({
@@ -96,8 +98,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a101c",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f4f7fb" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a101c" },
+  ],
+  colorScheme: "dark light",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -109,10 +114,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning data-theme="dark">
       <body
         className={`${geist.variable} ${geistMono.variable} ${instrument.variable} min-h-screen font-sans antialiased`}
       >
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: themeInitScript }}
+        />
         <JsonLd />
         {children}
       </body>

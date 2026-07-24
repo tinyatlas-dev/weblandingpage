@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { useActiveSection } from "@/hooks/use-active-section";
 import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
 import { cn, easeOutExpo } from "@/lib/utils";
@@ -23,12 +24,13 @@ export function Navigation() {
     <header className="pointer-events-none fixed inset-x-0 top-0 z-[200] flex justify-center px-[var(--page-gutter)] pt-[var(--space-md)]">
       <nav
         className={cn(
-          "pointer-events-auto glass-surface inline-flex max-w-[min(42rem,100%)] items-center gap-2 rounded-[var(--radius-pill)] px-2 py-2 shadow-[0_12px_40px_oklch(0%_0_0/0.35)] sm:gap-3 sm:px-3",
-          open && "max-md:w-full max-md:flex-col max-md:items-stretch max-md:rounded-[1.5rem] max-md:p-3"
+          "pointer-events-auto glass-surface inline-flex max-w-[min(46rem,100%)] items-center gap-2 rounded-[var(--radius-pill)] px-2 py-2 shadow-[var(--shadow-nav)] sm:gap-3 sm:px-3",
+          open &&
+            "max-md:w-full max-md:flex-col max-md:items-stretch max-md:rounded-[1.5rem] max-md:p-3"
         )}
         aria-label="Primary"
       >
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex w-full items-center justify-between gap-3 md:w-auto md:justify-start">
           <Link
             href="/"
             className="group flex shrink-0 items-center gap-2.5 rounded-[var(--radius-pill)] px-2 py-1.5 text-[14px] font-medium tracking-tight text-[var(--color-ink)] transition-opacity duration-[var(--dur-short)] hover:opacity-80"
@@ -45,16 +47,19 @@ export function Navigation() {
             </span>
           </Link>
 
-          <button
-            type="button"
-            className="inline-flex size-11 items-center justify-center rounded-full text-[var(--color-ink)] transition-colors duration-[var(--dur-micro)] hover:bg-[var(--color-paper-3)] md:hidden"
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            aria-label={open ? "Close menu" : "Open menu"}
-            onClick={() => setOpen((value) => !value)}
-          >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
+          <div className="flex items-center gap-1.5 md:hidden">
+            <ThemeToggle />
+            <button
+              type="button"
+              className="inline-flex size-10 items-center justify-center rounded-full text-[var(--color-ink)] transition-colors duration-[var(--dur-micro)] hover:bg-[var(--color-paper-3)]"
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              aria-label={open ? "Close menu" : "Open menu"}
+              onClick={() => setOpen((value) => !value)}
+            >
+              {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
+          </div>
         </div>
 
         <ul className="hidden items-center gap-0.5 md:flex">
@@ -82,12 +87,15 @@ export function Navigation() {
           })}
         </ul>
 
-        <a
-          href="#apps"
-          className="hidden h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-[var(--radius-pill)] bg-[var(--color-ink)] px-4 text-[13px] font-medium text-[var(--color-paper)] transition-[transform,opacity] duration-[var(--dur-micro)] hover:opacity-90 active:translate-y-px md:inline-flex"
-        >
-          Explore apps
-        </a>
+        <div className="hidden items-center gap-2 md:flex">
+          <ThemeToggle />
+          <a
+            href="#apps"
+            className="inline-flex h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-[var(--radius-pill)] bg-[var(--color-ink)] px-4 text-[13px] font-medium text-[var(--color-paper)] transition-[transform,opacity] duration-[var(--dur-micro)] hover:opacity-90 active:translate-y-px"
+          >
+            Explore apps
+          </a>
+        </div>
 
         <AnimatePresence>
           {open ? (

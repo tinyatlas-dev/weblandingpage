@@ -59,7 +59,7 @@ export function FeaturedApps() {
                       className="absolute inset-[12%] -z-10 rounded-full bg-[radial-gradient(circle,var(--color-glow),transparent_70%)] blur-2xl"
                     />
                     <motion.div
-                      className="relative mx-auto aspect-[9/16] w-[min(58%,16rem)] overflow-hidden rounded-[1.75rem] border border-[var(--color-glass-border)] bg-[var(--color-paper-2)] p-1.5 shadow-[0_28px_70px_oklch(0%_0_0/0.45)]"
+                      className="relative mx-auto aspect-[9/16] w-[min(58%,16rem)] overflow-hidden rounded-[1.75rem] border border-[var(--color-glass-border)] bg-[var(--color-paper-2)] p-1.5 shadow-[var(--shadow-card)]"
                       animate={reduced ? undefined : { y: [0, -8, 0] }}
                       transition={{
                         duration: 5.8 + index * 0.35,
@@ -87,7 +87,7 @@ export function FeaturedApps() {
                         alt=""
                         width={52}
                         height={52}
-                        className="rounded-[13px] shadow-[0_12px_28px_oklch(0%_0_0/0.35)]"
+                        className="rounded-[13px] shadow-[var(--shadow-icon)]"
                       />
                       <div>
                         <h3 className="font-display text-[2rem] leading-none tracking-[-0.02em] text-[var(--color-ink)]">

@@ -31,7 +31,7 @@ export function Philosophy() {
         aria-hidden
         className="pointer-events-none absolute -left-24 top-0 h-[70%] w-[55%] rounded-full bg-[radial-gradient(circle,var(--color-glow),transparent_68%)] blur-3xl"
       />
-      <div className="noise-overlay absolute inset-0 opacity-[0.06]" />
+      <div className="noise-overlay absolute inset-0 mix-blend-soft-light" />
 
       <motion.div
         style={reduced ? undefined : { opacity, y }}

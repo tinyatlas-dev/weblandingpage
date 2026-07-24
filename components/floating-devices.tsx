@@ -92,7 +92,7 @@ function PhoneDevice({
       >
         <div
           aria-hidden
-          className="absolute -inset-x-10 bottom-[-12%] h-[24%] rounded-[100%] bg-[radial-gradient(ellipse_at_center,oklch(0%_0_0/0.45),transparent_70%)] blur-xl"
+          className="absolute -inset-x-10 bottom-[-12%] h-[24%] rounded-[100%] bg-[radial-gradient(ellipse_at_center,var(--shadow-device-floor),transparent_70%)] blur-xl"
         />
 
         <div
@@ -104,13 +104,13 @@ function PhoneDevice({
           className={cn(
             "relative aspect-[9/19.2] w-[min(42vw,210px)] overflow-hidden rounded-[2.05rem]",
             "border border-[var(--color-glass-border)] bg-[linear-gradient(160deg,var(--color-paper-3),var(--color-paper))] p-[7px]",
-            "shadow-[0_40px_90px_oklch(0%_0_0/0.55),0_8px_24px_oklch(0%_0_0/0.35),inset_0_1px_0_var(--color-glass-border)]",
+            "shadow-[var(--shadow-device),inset_0_1px_0_var(--color-glass-border)]",
             "sm:w-[230px] md:w-[248px] lg:rounded-[2.35rem] lg:p-[8px]"
           )}
         >
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 rounded-[inherit] bg-[linear-gradient(135deg,oklch(94%_0.01_250/0.22),transparent_30%,transparent_70%,oklch(94%_0.01_250/0.06))]"
+            className="pointer-events-none absolute inset-0 rounded-[inherit] bg-[linear-gradient(135deg,var(--color-device-hi),transparent_30%,transparent_70%,var(--color-device-mid))]"
           />
 
           <div className="relative h-full overflow-hidden rounded-[1.55rem] bg-[var(--color-paper-2)] lg:rounded-[1.85rem]">
@@ -125,7 +125,7 @@ function PhoneDevice({
             />
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,oklch(94%_0.01_250/0.18)_0%,oklch(94%_0.01_250/0.04)_22%,transparent_42%)]"
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,var(--color-device-sheen)_0%,var(--color-device-mid)_22%,transparent_42%)]"
             />
           </div>
         </div>
