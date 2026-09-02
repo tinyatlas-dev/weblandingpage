@@ -49,8 +49,8 @@ export function FeaturedApps() {
               <ScrollReveal key={app.id} delay={index * 0.06}>
                 <article
                   className={cn(
-                    "grid items-center gap-[var(--space-xl)] lg:grid-cols-2 lg:gap-[var(--space-2xl)]",
-                    reverse && "lg:[&>*:first-child]:order-2"
+                    "grid items-center gap-[var(--space-xl)] md:grid-cols-2 md:gap-[var(--space-xl)] lg:gap-[var(--space-2xl)]",
+                    reverse && "md:[&>*:first-child]:order-2"
                   )}
                 >
                   <div className="relative min-w-0">
@@ -59,7 +59,7 @@ export function FeaturedApps() {
                       className="absolute inset-[12%] -z-10 rounded-full bg-[radial-gradient(circle,var(--color-glow),transparent_70%)] blur-2xl"
                     />
                     <motion.div
-                      className="relative mx-auto aspect-[9/16] w-[min(58%,16rem)] overflow-hidden rounded-[1.75rem] border border-[var(--color-glass-border)] bg-[var(--color-paper-2)] p-1.5 shadow-[var(--shadow-card)]"
+                      className="relative mx-auto aspect-[9/16] w-[min(70%,14.5rem)] overflow-hidden rounded-[1.75rem] border border-[var(--color-glass-border)] bg-[var(--color-paper-2)] p-1.5 shadow-[var(--shadow-card)] sm:w-[min(55%,16rem)]"
                       animate={reduced ? undefined : { y: [0, -8, 0] }}
                       transition={{
                         duration: 5.8 + index * 0.35,
@@ -73,7 +73,7 @@ export function FeaturedApps() {
                           alt={`${app.name} preview`}
                           fill
                           className="object-cover"
-                          sizes="256px"
+                          sizes="(max-width: 640px) 70vw, 256px"
                           loading="lazy"
                         />
                       </div>
@@ -81,29 +81,29 @@ export function FeaturedApps() {
                   </div>
 
                   <div className="min-w-0">
-                    <div className="flex items-start gap-4">
+                    <div className="flex items-start gap-3 sm:gap-4">
                       <Image
                         src={app.icon}
                         alt=""
                         width={52}
                         height={52}
-                        className="rounded-[13px] shadow-[var(--shadow-icon)]"
+                        className="size-11 shrink-0 rounded-[13px] shadow-[var(--shadow-icon)] sm:size-[52px]"
                       />
-                      <div>
-                        <h3 className="font-display text-[2rem] leading-none tracking-[-0.02em] text-[var(--color-ink)]">
+                      <div className="min-w-0">
+                        <h3 className="font-display text-[clamp(1.5rem,1.1rem+2vw,2rem)] leading-none tracking-[-0.02em] text-[var(--color-ink)]">
                           {app.name}
                         </h3>
-                        <p className="mt-4 max-w-[36ch] text-[15px] leading-relaxed text-[var(--color-ink-soft)]">
+                        <p className="mt-3 max-w-[36ch] text-[15px] leading-relaxed text-[var(--color-ink-soft)] sm:mt-4">
                           {app.description}
                         </p>
                       </div>
                     </div>
 
-                    <div className="mt-8 flex flex-wrap items-center gap-4">
+                    <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8 sm:gap-4">
                       <AppStoreBadge href={app.appStoreUrl} name={app.name} />
                       <a
                         href={app.learnMoreUrl}
-                        className="inline-flex items-center gap-1.5 text-[14px] font-medium text-[var(--color-ink-soft)] transition-colors duration-[var(--dur-micro)] hover:text-[var(--color-ink)]"
+                        className="inline-flex min-h-11 items-center gap-1.5 text-[14px] font-medium text-[var(--color-ink-soft)] transition-colors duration-[var(--dur-micro)] hover:text-[var(--color-ink)]"
                       >
                         Learn more
                         <ArrowUpRight className="size-4" aria-hidden />

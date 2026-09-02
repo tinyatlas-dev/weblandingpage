@@ -35,9 +35,9 @@ export function Philosophy() {
 
       <motion.div
         style={reduced ? undefined : { opacity, y }}
-        className="page-shell relative grid gap-[var(--space-xl)] lg:grid-cols-[1.1fr_0.9fr] lg:items-end"
+        className="page-shell relative grid gap-[var(--space-xl)] md:grid-cols-[1.1fr_0.9fr] md:items-end"
       >
-        <div>
+        <div className="min-w-0">
           <h2 id="philosophy-heading" className="sr-only">
             Simple. Fast. Thoughtful.
           </h2>
@@ -53,7 +53,7 @@ export function Philosophy() {
                   delay: reduced ? 0 : index * 0.1,
                   ease: easeOutExpo,
                 }}
-                className="font-display block text-[clamp(2.75rem,8vw,6rem)] leading-[0.94] tracking-[-0.03em] text-[var(--color-ink)]"
+                className="font-display block text-[clamp(2.25rem,6vw+0.75rem,6rem)] leading-[0.94] tracking-[-0.03em] text-[var(--color-ink)]"
               >
                 {word}
               </motion.span>
@@ -66,7 +66,7 @@ export function Philosophy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.45, delay: reduced ? 0 : 0.28 }}
-          className="max-w-[36ch] text-[length:var(--text-lg)] leading-[1.7] text-[var(--color-ink-soft)] lg:justify-self-end lg:pb-3"
+          className="max-w-[36ch] text-[length:var(--text-lg)] leading-[1.7] text-[var(--color-ink-soft)] md:justify-self-end md:pb-3"
         >
           The best apps get out of the way. Clarity over clutter. Speed over
           spectacle. Care in every interaction.

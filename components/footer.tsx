@@ -10,7 +10,7 @@ export function Footer() {
         </p>
 
         <div className="flex flex-col gap-[var(--space-lg)] border-t border-[var(--color-rule)] pt-[var(--space-lg)] sm:flex-row sm:items-end sm:justify-between">
-          <div>
+          <div className="min-w-0">
             <Link
               href="/"
               className="font-display text-[1.15rem] tracking-[-0.02em] text-[var(--color-ink)] transition-opacity duration-[var(--dur-short)] hover:opacity-80"
@@ -22,8 +22,8 @@ export function Footer() {
             </p>
           </div>
 
-          <nav aria-label="Footer">
-            <ul className="flex flex-wrap gap-x-7 gap-y-3">
+          <nav aria-label="Footer" className="min-w-0">
+            <ul className="flex flex-wrap gap-x-5 gap-y-3 sm:gap-x-7">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.href}>
                   {"external" in link && link.external ? (
@@ -31,14 +31,14 @@ export function Footer() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="whitespace-nowrap text-[var(--text-sm)] font-medium text-[var(--color-ink-soft)] transition-colors duration-[var(--dur-micro)] hover:text-[var(--color-ink)]"
+                      className="inline-flex min-h-11 items-center whitespace-nowrap text-[var(--text-sm)] font-medium text-[var(--color-ink-soft)] transition-colors duration-[var(--dur-micro)] hover:text-[var(--color-ink)] sm:min-h-0"
                     >
                       {link.label}
                     </a>
                   ) : (
                     <Link
                       href={link.href}
-                      className="whitespace-nowrap text-[var(--text-sm)] font-medium text-[var(--color-ink-soft)] transition-colors duration-[var(--dur-micro)] hover:text-[var(--color-ink)]"
+                      className="inline-flex min-h-11 items-center whitespace-nowrap text-[var(--text-sm)] font-medium text-[var(--color-ink-soft)] transition-colors duration-[var(--dur-micro)] hover:text-[var(--color-ink)] sm:min-h-0"
                     >
                       {link.label}
                     </Link>

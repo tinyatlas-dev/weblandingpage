@@ -6,8 +6,8 @@ import { features } from "@/lib/data";
 export function About() {
   return (
     <section id="about" className="section-pad relative scroll-mt-28">
-      <div className="page-shell grid items-start gap-[var(--space-2xl)] lg:grid-cols-2 lg:gap-[var(--space-3xl)]">
-        <ScrollReveal className="max-w-xl lg:sticky lg:top-32">
+      <div className="page-shell grid items-start gap-[var(--space-2xl)] md:grid-cols-2 md:gap-[var(--space-xl)] lg:gap-[var(--space-3xl)]">
+        <ScrollReveal className="max-w-xl md:sticky md:top-28 lg:top-32">
           <h2 className="text-balance text-[length:var(--text-display-s)] leading-[1.05] text-[var(--color-ink)]">
             Small studio.
             <br />

@@ -20,34 +20,44 @@ export function Navigation() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const onResize = () => {
+      if (window.matchMedia("(min-width: 1024px)").matches) {
+        setOpen(false);
+      }
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-[200] flex justify-center px-[var(--page-gutter)] pt-[var(--space-md)]">
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-[200] flex justify-center px-[var(--page-gutter)] pt-[max(0.75rem,env(safe-area-inset-top))] sm:pt-[var(--space-md)]">
       <nav
         className={cn(
           "pointer-events-auto glass-surface inline-flex max-w-[min(46rem,100%)] items-center gap-2 rounded-[var(--radius-pill)] px-2 py-2 shadow-[var(--shadow-nav)] sm:gap-3 sm:px-3",
           open &&
-            "max-md:w-full max-md:flex-col max-md:items-stretch max-md:rounded-[1.5rem] max-md:p-3"
+            "max-lg:w-full max-lg:flex-col max-lg:items-stretch max-lg:rounded-[1.5rem] max-lg:p-3"
         )}
         aria-label="Primary"
       >
-        <div className="flex w-full items-center justify-between gap-3 md:w-auto md:justify-start">
+        <div className="flex w-full min-w-0 items-center justify-between gap-3 lg:w-auto lg:justify-start">
           <Link
             href="/"
-            className="group flex shrink-0 items-center gap-2.5 rounded-[var(--radius-pill)] px-2 py-1.5 text-[14px] font-medium tracking-tight text-[var(--color-ink)] transition-opacity duration-[var(--dur-short)] hover:opacity-80"
+            className="group flex min-w-0 shrink items-center gap-2.5 rounded-[var(--radius-pill)] px-2 py-1.5 text-[14px] font-medium tracking-tight text-[var(--color-ink)] transition-opacity duration-[var(--dur-short)] hover:opacity-80"
           >
             <span
               aria-hidden
-              className="relative flex size-7 items-center justify-center overflow-hidden rounded-[9px] bg-[var(--color-paper-3)] shadow-[0_0_24px_var(--color-glow)]"
+              className="relative flex size-7 shrink-0 items-center justify-center overflow-hidden rounded-[9px] bg-[var(--color-paper-3)] shadow-[0_0_24px_var(--color-glow)]"
             >
               <span className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,var(--color-accent),transparent_58%)] opacity-80" />
               <span className="relative size-1.5 rounded-full bg-[var(--color-ink)]" />
             </span>
-            <span className="font-display text-[1.05rem] tracking-[-0.02em]">
+            <span className="font-display truncate text-[1.05rem] tracking-[-0.02em]">
               {SITE_NAME}
             </span>
           </Link>
 
-          <div className="flex items-center gap-1.5 md:hidden">
+          <div className="flex shrink-0 items-center gap-1.5 lg:hidden">
             <ThemeToggle />
             <button
               type="button"
@@ -62,7 +72,7 @@ export function Navigation() {
           </div>
         </div>
 
-        <ul className="hidden items-center gap-0.5 md:flex">
+        <ul className="hidden items-center gap-0.5 lg:flex">
           {NAV_LINKS.map((link) => {
             const sectionId = link.href.startsWith("#")
               ? link.href.slice(1)
@@ -87,7 +97,7 @@ export function Navigation() {
           })}
         </ul>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-2 lg:flex">
           <ThemeToggle />
           <a
             href="#apps"
@@ -105,7 +115,7 @@ export function Navigation() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.22, ease: easeOutExpo }}
-              className="flex w-full flex-col gap-1 md:hidden"
+              className="flex w-full flex-col gap-1 lg:hidden"
             >
               {NAV_LINKS.map((link) => (
                 <Link

@@ -75,7 +75,7 @@ function PhoneDevice({
   return (
     <motion.div
       className={cn("relative", className)}
-      animate={reduced ? undefined : { y: [0, -14, 0] }}
+      animate={reduced ? undefined : { y: [0, -10, 0] }}
       transition={{
         duration: 6.4 + floatDelay,
         repeat: Infinity,
@@ -102,10 +102,10 @@ function PhoneDevice({
 
         <div
           className={cn(
-            "relative aspect-[9/19.2] w-[min(42vw,210px)] overflow-hidden rounded-[2.05rem]",
-            "border border-[var(--color-glass-border)] bg-[linear-gradient(160deg,var(--color-paper-3),var(--color-paper))] p-[7px]",
+            "relative aspect-[9/19.2] w-[var(--device-w)] overflow-hidden rounded-[2.05rem]",
+            "border border-[var(--color-glass-border)] bg-[linear-gradient(160deg,var(--color-paper-3),var(--color-paper))] p-[6px]",
             "shadow-[var(--shadow-device),inset_0_1px_0_var(--color-glass-border)]",
-            "sm:w-[230px] md:w-[248px] lg:rounded-[2.35rem] lg:p-[8px]"
+            "sm:p-[7px] lg:rounded-[2.35rem] lg:p-[8px]"
           )}
         >
           <div
@@ -114,13 +114,13 @@ function PhoneDevice({
           />
 
           <div className="relative h-full overflow-hidden rounded-[1.55rem] bg-[var(--color-paper-2)] lg:rounded-[1.85rem]">
-            <div className="absolute left-1/2 top-2.5 z-10 h-[22px] w-[88px] -translate-x-1/2 rounded-full bg-[var(--color-paper)] shadow-[inset_0_1px_2px_var(--color-glass-border)]" />
+            <div className="absolute left-1/2 top-2.5 z-10 h-[18px] w-[min(58%,5.5rem)] -translate-x-1/2 rounded-full bg-[var(--color-paper)] shadow-[inset_0_1px_2px_var(--color-glass-border)] sm:h-[22px]" />
             <Image
               src={screenshot}
               alt={`${name} app screenshot`}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 42vw, 248px"
+              sizes="(max-width: 767px) 42vw, (max-width: 1023px) 22vw, 248px"
               priority={priority}
             />
             <div
@@ -144,22 +144,26 @@ export function FloatingDevices({
   return (
     <div
       className={cn(
-        "relative mx-auto flex w-full max-w-xl items-end justify-center [perspective:1800px]",
-        compact
-          ? "h-[380px] sm:h-[440px] md:h-[500px]"
-          : "mt-10 h-[420px] sm:mt-12 sm:h-[500px] md:h-[560px]"
+        "relative mx-auto flex w-full items-end justify-center overflow-x-clip [perspective:1800px]",
+        "[--device-w:clamp(9.75rem,42vw,13.25rem)]",
+        "md:[--device-w:clamp(10.5rem,20vw,14rem)]",
+        "lg:[--device-w:clamp(12rem,16vw,15.5rem)]",
+        "xl:[--device-w:15.5rem]",
+        /* Height follows phone aspect (9/19.2) + float/glow room */
+        "h-[calc(var(--device-w)*2.133+2.5rem)]",
+        compact ? "mt-1 max-w-md md:mt-0 md:max-w-none" : "mt-8 max-w-md sm:mt-10 md:max-w-none"
       )}
     >
       <PhoneDevice
         screenshot={left.screenshot}
         name={left.name}
-        className="absolute left-[-4%] top-[8%] z-10 hidden sm:block md:left-[-2%]"
+        className="absolute left-[4%] top-[12%] z-10 hidden md:block lg:left-[2%] xl:left-0"
         floatDelay={0.35}
-        rotateY={32}
+        rotateY={28}
         rotateX={6}
-        rotateZ={-10}
+        rotateZ={-8}
         depth={0.7}
-        scale={0.82}
+        scale={0.78}
       />
       <PhoneDevice
         screenshot={center.screenshot}
@@ -176,13 +180,13 @@ export function FloatingDevices({
       <PhoneDevice
         screenshot={right.screenshot}
         name={right.name}
-        className="absolute right-[-4%] top-[14%] z-20 hidden sm:block md:right-[-2%]"
+        className="absolute right-[4%] top-[16%] z-20 hidden md:block lg:right-[2%] xl:right-0"
         floatDelay={0.7}
-        rotateY={-34}
+        rotateY={-30}
         rotateX={8}
-        rotateZ={10}
+        rotateZ={8}
         depth={0.75}
-        scale={0.84}
+        scale={0.8}
       />
     </div>
   );

@@ -18,17 +18,17 @@
   --font-body: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --font-outlier: var(--font-geist-mono), ui-monospace, monospace;
 
-  /* Scale — perfect fourth */
+  /* Scale — perfect fourth, fluid across phones → ultrawide */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-md: 1rem;
-  --text-lg: 1.125rem;
+  --text-lg: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
   --text-xl: 1.333rem;
   --text-2xl: 1.777rem;
   --text-3xl: 2.369rem;
   --text-4xl: 3.157rem;
-  --text-display-s: clamp(2.25rem, 4vw + 1rem, 3.5rem);
-  --text-display: clamp(2.75rem, 5.5vw + 1rem, 4.75rem);
+  --text-display-s: clamp(1.85rem, 1rem + 3.4vw, 3.5rem);
+  --text-display: clamp(2.15rem, 0.85rem + 5.2vw, 4.75rem);
 
   /* Space — 4pt */
   --space-3xs: 0.125rem;
@@ -37,11 +37,11 @@
   --space-sm: 0.75rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
-  --space-xl: 2.5rem;
-  --space-2xl: 4rem;
-  --space-3xl: 6rem;
-  --space-4xl: 9rem;
-  --page-gutter: clamp(1rem, 4vw, 1.5rem);
+  --space-xl: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  --space-2xl: clamp(2.5rem, 1.5rem + 4vw, 4rem);
+  --space-3xl: clamp(3.5rem, 2rem + 6vw, 6rem);
+  --space-4xl: clamp(5rem, 3rem + 8vw, 9rem);
+  --page-gutter: clamp(1rem, 0.6rem + 3.2vw, 2rem);
 
   /* Motion */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);

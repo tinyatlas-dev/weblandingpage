@@ -26,8 +26,8 @@ export function Timeline() {
       className="section-pad relative"
       aria-labelledby="timeline-heading"
     >
-      <div className="page-shell grid gap-[var(--space-2xl)] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-[var(--space-3xl)]">
-        <ScrollReveal className="max-w-md lg:sticky lg:top-32 lg:self-start">
+      <div className="page-shell grid gap-[var(--space-2xl)] md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-[var(--space-xl)] lg:gap-[var(--space-3xl)]">
+        <ScrollReveal className="max-w-md md:sticky md:top-28 md:self-start lg:top-32">
           <h2
             id="timeline-heading"
             className="text-balance text-[length:var(--text-display-s)] leading-[1.05] text-[var(--color-ink)]"
