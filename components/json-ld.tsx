@@ -14,7 +14,6 @@ export function JsonLd() {
     email: CONTACT_EMAIL,
     description: SITE_DESCRIPTION,
     logo: `${SITE_URL}/icon.svg`,
-    sameAs: ["https://github.com/tinyatlas"],
     contactPoint: {
       "@type": "ContactPoint",
       email: CONTACT_EMAIL,

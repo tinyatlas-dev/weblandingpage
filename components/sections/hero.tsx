@@ -64,10 +64,10 @@ export function Hero() {
             className="mt-8 flex w-full flex-col gap-3 sm:mt-10 lg:w-auto lg:flex-row lg:items-center"
           >
             <a
-              href="#apps"
+              href="#about"
               className="inline-flex h-12 w-full items-center justify-center rounded-[var(--radius-pill)] bg-[var(--color-ink)] px-6 text-[15px] font-medium whitespace-nowrap text-[var(--color-paper)] transition-[transform,opacity] duration-[var(--dur-micro)] hover:opacity-90 active:translate-y-px lg:w-auto lg:min-w-[10.5rem]"
             >
-              Explore apps
+              About us
             </a>
             <a
               href="#support"

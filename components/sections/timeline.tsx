@@ -32,7 +32,7 @@ export function Timeline() {
             id="timeline-heading"
             className="text-balance text-[length:var(--text-display-s)] leading-[1.05] text-[var(--color-ink)]"
           >
-            A quiet path, carefully drawn.
+            A path just beginning.
           </h2>
         </ScrollReveal>
 

@@ -1,12 +1,7 @@
 export type AppItem = {
   id: string;
   name: string;
-  description: string;
-  icon: string;
   screenshot: string;
-  accent: string;
-  appStoreUrl: string;
-  learnMoreUrl: string;
 };
 
 export type FeatureItem = {
@@ -14,13 +9,6 @@ export type FeatureItem = {
   title: string;
   description: string;
   icon: "swift" | "android" | "design" | "performance" | "privacy";
-};
-
-export type StatItem = {
-  id: string;
-  value: number;
-  suffix: string;
-  label: string;
 };
 
 export type TimelineItem = {
@@ -34,35 +22,17 @@ export const apps: AppItem[] = [
   {
     id: "northlight",
     name: "Northlight",
-    description:
-      "A calm focus timer that helps you reclaim attention without the noise.",
-    icon: "/apps/northlight.svg",
     screenshot: "/screens/northlight.svg",
-    accent: "from-sky-400/40 via-blue-500/20 to-transparent",
-    appStoreUrl: "https://apps.apple.com",
-    learnMoreUrl: "#apps",
   },
   {
     id: "harbor",
     name: "Harbor",
-    description:
-      "Private notes that feel as quiet as paper, with sync that stays out of the way.",
-    icon: "/apps/harbor.svg",
     screenshot: "/screens/harbor.svg",
-    accent: "from-violet-400/40 via-indigo-500/20 to-transparent",
-    appStoreUrl: "https://apps.apple.com",
-    learnMoreUrl: "#apps",
   },
   {
     id: "drift",
     name: "Drift",
-    description:
-      "Weather designed for glancing — clear, local, and beautifully restrained.",
-    icon: "/apps/drift.svg",
     screenshot: "/screens/drift.svg",
-    accent: "from-cyan-400/40 via-teal-500/20 to-transparent",
-    appStoreUrl: "https://apps.apple.com",
-    learnMoreUrl: "#apps",
   },
 ];
 
@@ -99,39 +69,26 @@ export const features: FeatureItem[] = [
   },
 ];
 
-export const stats: StatItem[] = [
-  { id: "apps", value: 5, suffix: "", label: "Apps" },
-  { id: "downloads", value: 100, suffix: "K+", label: "Downloads" },
-  { id: "countries", value: 120, suffix: "+", label: "Countries" },
-];
-
 export const timeline: TimelineItem[] = [
   {
     id: "founded",
-    year: "2022",
+    year: "2026",
     title: "Tiny Atlas founded",
     description:
-      "A small studio with a simple belief: software can feel calm and human.",
+      "A new studio with a simple belief: software can feel calm and human.",
   },
   {
-    id: "first-app",
-    year: "2023",
-    title: "First App",
+    id: "building",
+    year: "Now",
+    title: "Building in public",
     description:
-      "Northlight shipped — our first step toward everyday delightful tools.",
+      "Sketching the first products — small tools made with care, not haste.",
   },
   {
-    id: "10k",
-    year: "2024",
-    title: "10K Users",
+    id: "next",
+    year: "Next",
+    title: "First release ahead",
     description:
-      "A quiet community formed around apps that respect their time.",
-  },
-  {
-    id: "100k",
-    year: "2025",
-    title: "100K Downloads",
-    description:
-      "Craft compounded. More people. Same attention to detail.",
+      "We're just getting started. The first app is on the way.",
   },
 ];

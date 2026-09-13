@@ -100,10 +100,10 @@ export function Navigation() {
         <div className="hidden items-center gap-2 lg:flex">
           <ThemeToggle />
           <a
-            href="#apps"
+            href="#about"
             className="inline-flex h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-[var(--radius-pill)] bg-[var(--color-ink)] px-4 text-[13px] font-medium text-[var(--color-paper)] transition-[transform,opacity] duration-[var(--dur-micro)] hover:opacity-90 active:translate-y-px"
           >
-            Explore apps
+            About us
           </a>
         </div>
 
@@ -128,11 +128,11 @@ export function Navigation() {
                 </Link>
               ))}
               <a
-                href="#apps"
+                href="#about"
                 onClick={() => setOpen(false)}
                 className="mt-1 flex h-12 items-center justify-center rounded-[var(--radius-pill)] bg-[var(--color-ink)] text-[15px] font-medium text-[var(--color-paper)]"
               >
-                Explore apps
+                About us
               </a>
             </motion.div>
           ) : null}

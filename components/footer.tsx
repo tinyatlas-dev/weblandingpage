@@ -26,23 +26,12 @@ export function Footer() {
             <ul className="flex flex-wrap gap-x-5 gap-y-3 sm:gap-x-7">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.href}>
-                  {"external" in link && link.external ? (
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex min-h-11 items-center whitespace-nowrap text-[var(--text-sm)] font-medium text-[var(--color-ink-soft)] transition-colors duration-[var(--dur-micro)] hover:text-[var(--color-ink)] sm:min-h-0"
-                    >
-                      {link.label}
-                    </a>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className="inline-flex min-h-11 items-center whitespace-nowrap text-[var(--text-sm)] font-medium text-[var(--color-ink-soft)] transition-colors duration-[var(--dur-micro)] hover:text-[var(--color-ink)] sm:min-h-0"
-                    >
-                      {link.label}
-                    </Link>
-                  )}
+                  <Link
+                    href={link.href}
+                    className="inline-flex min-h-11 items-center whitespace-nowrap text-[var(--text-sm)] font-medium text-[var(--color-ink-soft)] transition-colors duration-[var(--dur-micro)] hover:text-[var(--color-ink)] sm:min-h-0"
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
