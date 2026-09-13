@@ -30,7 +30,7 @@
   --color-atlas-ink: var(--color-ink);
   --color-atlas-soft: var(--color-ink-soft);
   --color-atlas-accent: var(--color-accent);
-  --color-atlas-blue: var(--color-accent);
+  --color-atlas-blue: var(--color-electric);
   --color-atlas-paper: var(--color-paper);
   --color-atlas-paper-2: var(--color-paper-2);
   --color-atlas-paper-3: var(--color-paper-3);
@@ -38,6 +38,8 @@
   --color-atlas-glass: var(--color-glass);
   --color-atlas-glass-border: var(--color-glass-border);
   --color-atlas-glow: var(--color-glow);
+  --color-atlas-violet: var(--color-violet);
+  --color-atlas-electric: var(--color-electric);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -102,8 +104,8 @@
   h4 {
     font-family: var(--font-display);
     font-style: normal;
-    font-weight: 400;
-    letter-spacing: -0.02em;
+    font-weight: 600;
+    letter-spacing: -0.035em;
     overflow-wrap: anywhere;
     min-width: 0;
   }

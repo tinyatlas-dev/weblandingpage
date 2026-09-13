@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
 import { FOOTER_LINKS, SITE_NAME } from "@/lib/constants";
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-[var(--color-rule)]">
+    <footer className="relative border-t border-[var(--color-rule)] bg-[var(--color-paper-2)]">
       <div className="page-shell grid gap-[var(--space-xl)] py-[var(--space-2xl)] sm:py-[var(--space-3xl)]">
-        <p className="font-display max-w-[18ch] text-[clamp(1.75rem,5vw,3.25rem)] leading-[1.02] tracking-[-0.02em] text-[var(--color-ink)]">
+        <p className="max-w-[18ch] text-[clamp(1.75rem,5vw,3.25rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-[var(--color-ink)]">
           Build something they&apos;ll keep.
         </p>
 
@@ -13,11 +14,11 @@ export function Footer() {
           <div className="min-w-0">
             <Link
               href="/"
-              className="font-display text-[1.15rem] tracking-[-0.02em] text-[var(--color-ink)] transition-opacity duration-[var(--dur-short)] hover:opacity-80"
+              className="inline-flex transition-opacity duration-[var(--dur-short)] hover:opacity-80"
             >
-              {SITE_NAME}
+              <BrandLogo size={26} />
             </Link>
-            <p className="mt-2 text-[var(--text-sm)] text-[var(--color-ink-soft)]">
+            <p className="mt-3 text-[var(--text-sm)] text-[var(--color-ink-soft)]">
               © 2026 {SITE_NAME}
             </p>
           </div>
@@ -28,7 +29,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="inline-flex min-h-11 items-center whitespace-nowrap text-[var(--text-sm)] font-medium text-[var(--color-ink-soft)] transition-colors duration-[var(--dur-micro)] hover:text-[var(--color-ink)] sm:min-h-0"
+                    className="inline-flex min-h-11 items-center whitespace-nowrap text-[var(--text-sm)] font-medium text-[var(--color-ink-soft)] transition-colors duration-[var(--dur-micro)] hover:text-[var(--color-electric)] sm:min-h-0"
                   >
                     {link.label}
                   </Link>

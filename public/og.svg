@@ -1,8 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
-  <rect width="1200" height="630" fill="#FFFFFF"/>
-  <circle cx="980" cy="80" r="220" fill="#BFDBFE" opacity="0.45"/>
-  <circle cx="180" cy="520" r="260" fill="#C4B5FD" opacity="0.35"/>
-  <circle cx="620" cy="120" r="180" fill="#A5F3FC" opacity="0.4"/>
-  <text x="96" y="280" fill="#0B1220" font-family="Inter, SF Pro Display, system-ui, sans-serif" font-size="72" font-weight="700">Tiny Atlas</text>
-  <text x="96" y="360" fill="#334155" font-family="Inter, SF Pro Display, system-ui, sans-serif" font-size="36" font-weight="500">Beautiful software. Crafted with care.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0B0D14"/>
+  <defs>
+    <radialGradient id="bloom" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(900 220) rotate(90) scale(380 420)">
+      <stop stop-color="#2556E9" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#2556E9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bloom2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(980 380) rotate(90) scale(320 360)">
+      <stop stop-color="#956CF7" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#956CF7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mark" x1="820" y1="170" x2="1060" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2556E9"/>
+      <stop offset="0.55" stop-color="#3558E9"/>
+      <stop offset="1" stop-color="#956CF7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bloom)"/>
+  <rect width="1200" height="630" fill="url(#bloom2)"/>
+  <circle cx="940" cy="300" r="118" stroke="#956CF7" stroke-opacity="0.28" fill="none"/>
+  <circle cx="940" cy="300" r="168" stroke="#2556E9" stroke-opacity="0.18" fill="none"/>
+  <path d="M940 210c38 0 66 17 82 44 15 24 16 56 1 82-10 17-26 30-45 37 23 9 40 26 47 50 5 17 2 35-8 50-15 22-40 34-68 32-26-2-48-17-60-39-10 20-28 33-51 35-30 4-59-15-67-44-6-21 0-43 16-59 13-13 32-21 51-20-21-13-34-34-35-60-1-33 21-62 53-69 16-4 48-12 84-12Z" fill="url(#mark)"/>
+  <circle cx="940" cy="300" r="28" fill="#0B0D14"/>
+  <circle cx="940" cy="300" r="12" fill="#956CF7"/>
+  <text x="96" y="268" fill="#F5F7FA" font-family="Manrope, ui-sans-serif, system-ui, sans-serif" font-size="64" font-weight="700" letter-spacing="-1.5">Tiny Atlas</text>
+  <text x="96" y="340" fill="#A8ADBE" font-family="Manrope, ui-sans-serif, system-ui, sans-serif" font-size="30" font-weight="500">Beautiful software. Crafted with care.</text>
 </svg>

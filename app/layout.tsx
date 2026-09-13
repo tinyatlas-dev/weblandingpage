@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
@@ -13,24 +13,11 @@ import {
 import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
-const geist = Geist({
-  variable: "--font-geist",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
   display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const instrument = Instrument_Serif({
-  variable: "--font-instrument",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-  style: "normal",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -90,8 +77,11 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/icon.svg" }],
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/brand/mark.png", type: "image/png" },
+    ],
+    apple: [{ url: "/icon.png" }],
   },
   category: "technology",
   other: {
@@ -101,8 +91,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f4f7fb" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a101c" },
+    { media: "(prefers-color-scheme: light)", color: "#f5f7fa" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0d14" },
   ],
   colorScheme: "dark light",
   width: "device-width",
@@ -116,10 +106,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning data-theme="dark">
-      <body
-        className={`${geist.variable} ${geistMono.variable} ${instrument.variable} min-h-screen font-sans antialiased`}
-      >
+    <html
+      lang="en"
+      suppressHydrationWarning
+      data-theme="dark"
+      className={manrope.variable}
+    >
+      <body className="min-h-screen font-sans antialiased">
         <Script
           id="theme-init"
           strategy="beforeInteractive"

@@ -1,22 +1,22 @@
-/* Hallmark · macrostructure: Split Studio · H2 knobs: ratio=5/7, right=orbit-of-3, divider=negative-space
- * theme: custom · vibe: "nocturnal studio, glass depth, editorial"
- * dual-mode: light (daylit atlas) + dark (nocturnal atlas) · signature: sun↔moon morph toggle
- * paper dark: oklch(13% 0.012 250) · paper light: oklch(97.5% 0.008 250)
- * accent dark: oklch(72% 0.13 230) · accent light: oklch(52% 0.145 242)
- * display: Instrument Serif · body: Geist · outlier: Geist Mono
- * axes: dual / roman-serif / cool · enrichment: 3D float + purposeful glass
- * nav: N5 Floating pill · footer: Ft5 Statement · tone: atmospheric luxury
- * genre: custom (tuned) · studied: no
- * Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4
- * contrast: pass (40–41) · nav: N5 · footer: Ft5 · slop: pass (42–45)
+/* TinyAtlas Brand Identity System — from Canva brand board 2026
+ * palette: Graphite · Slate · Electric Blue · Indigo · Violet · Soft White
+ * type: Manrope (display / heading / body)
+ * vibe: dark-first connected tech, blue→violet gradient mark
  */
 
 :root {
   /* Type */
-  --font-display: var(--font-instrument), "Iowan Old Style", "Palatino Linotype",
-    Palatino, serif;
-  --font-body: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: var(--font-geist-mono), ui-monospace, monospace;
+  --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand primitives */
+  --brand-graphite: #0b0d14;
+  --brand-slate: #161427;
+  --brand-electric: #2556e9;
+  --brand-indigo: #3558e9;
+  --brand-violet: #956cf7;
+  --brand-soft-white: #f5f7fa;
 
   /* Scale — perfect fourth, fluid across phones → ultrawide */
   --text-xs: 0.75rem;
@@ -63,88 +63,95 @@
   --z-sticky: 200;
   --z-modal: 400;
 
-  /* Theme color meta helpers */
-  --theme-color-meta: #0a101c;
+  --theme-color-meta: #0b0d14;
 }
 
-/* ── Dark · nocturnal atlas (canonical) ── */
+/* ── Dark · graphite atlas (canonical / brand board) ── */
 :root,
 [data-theme="dark"] {
-  --color-paper: oklch(13% 0.012 250);
-  --color-paper-2: oklch(17% 0.014 250);
-  --color-paper-3: oklch(21% 0.016 248);
-  --color-rule: oklch(30% 0.014 250);
-  --color-rule-2: oklch(26% 0.012 250);
-  --color-neutral: oklch(58% 0.012 250);
-  --color-muted: oklch(72% 0.01 248);
-  --color-ink: oklch(94% 0.008 250);
-  --color-ink-soft: oklch(78% 0.014 248);
-  --color-accent: oklch(72% 0.13 230);
-  --color-accent-soft: oklch(72% 0.13 230 / 0.18);
-  --color-focus: oklch(74% 0.16 230);
-  --color-accent-ink: oklch(14% 0.02 250);
-  --color-glass: oklch(94% 0.01 250 / 0.07);
-  --color-glass-border: oklch(94% 0.01 250 / 0.14);
-  --color-glow: oklch(72% 0.13 230 / 0.22);
-  --color-bloom-mid: oklch(55% 0.08 250 / 0.35);
-  --color-bloom-low: oklch(40% 0.06 230 / 0.28);
-  --color-orb-hi: oklch(94% 0.01 250 / 0.16);
-  --color-orb-lo: oklch(94% 0.01 250 / 0.04);
-  --color-orb-inset: oklch(94% 0.01 250 / 0.2);
-  --color-device-hi: oklch(94% 0.01 250 / 0.22);
-  --color-device-mid: oklch(94% 0.01 250 / 0.06);
-  --color-device-sheen: oklch(94% 0.01 250 / 0.18);
-  --color-noise-opacity: 0.05;
-  --shadow-nav: 0 12px 40px oklch(0% 0 0 / 0.35);
-  --shadow-device: 0 40px 90px oklch(0% 0 0 / 0.55),
-    0 8px 24px oklch(0% 0 0 / 0.35);
-  --shadow-device-floor: oklch(0% 0 0 / 0.45);
-  --shadow-card: 0 28px 70px oklch(0% 0 0 / 0.45);
-  --shadow-icon: 0 12px 28px oklch(0% 0 0 / 0.35);
-  --shadow-orb: 0 18px 40px oklch(0% 0 0 / 0.28);
+  --color-paper: #0b0d14;
+  --color-paper-2: #12101a;
+  --color-paper-3: #1a1726;
+  --color-rule: color-mix(in srgb, #f5f7fa 12%, transparent);
+  --color-rule-2: color-mix(in srgb, #f5f7fa 8%, transparent);
+  --color-neutral: #8b90a5;
+  --color-muted: #a8adbe;
+  --color-ink: #f5f7fa;
+  --color-ink-soft: color-mix(in srgb, #f5f7fa 72%, #161427);
+  --color-accent: #2556e9;
+  --color-accent-soft: color-mix(in srgb, #2556e9 22%, transparent);
+  --color-focus: #956cf7;
+  --color-accent-ink: #f5f7fa;
+  --color-electric: #2556e9;
+  --color-indigo: #3558e9;
+  --color-violet: #956cf7;
+  --color-glass: color-mix(in srgb, #f5f7fa 7%, transparent);
+  --color-glass-border: color-mix(in srgb, #f5f7fa 14%, transparent);
+  --color-glow: color-mix(in srgb, #2556e9 32%, transparent);
+  --color-bloom-mid: color-mix(in srgb, #956cf7 28%, transparent);
+  --color-bloom-low: color-mix(in srgb, #3558e9 22%, transparent);
+  --color-orbit-ring: color-mix(in srgb, #956cf7 28%, transparent);
+  --color-orb-hi: color-mix(in srgb, #f5f7fa 16%, transparent);
+  --color-orb-lo: color-mix(in srgb, #f5f7fa 4%, transparent);
+  --color-orb-inset: color-mix(in srgb, #f5f7fa 20%, transparent);
+  --color-device-hi: color-mix(in srgb, #f5f7fa 22%, transparent);
+  --color-device-mid: color-mix(in srgb, #f5f7fa 6%, transparent);
+  --color-device-sheen: color-mix(in srgb, #f5f7fa 18%, transparent);
+  --color-noise-opacity: 0.045;
+  --shadow-nav: 0 12px 40px color-mix(in srgb, #000 45%, transparent);
+  --shadow-device: 0 40px 90px color-mix(in srgb, #000 55%, transparent),
+    0 8px 24px color-mix(in srgb, #000 35%, transparent);
+  --shadow-device-floor: color-mix(in srgb, #000 45%, transparent);
+  --shadow-card: 0 28px 70px color-mix(in srgb, #000 45%, transparent);
+  --shadow-icon: 0 12px 28px color-mix(in srgb, #000 35%, transparent);
+  --shadow-orb: 0 18px 40px color-mix(in srgb, #000 28%, transparent);
   --shadow-toggle: 0 0 0 0 transparent;
-  --color-toggle-sun: oklch(84% 0.14 75);
-  --color-toggle-moon: oklch(88% 0.02 250);
-  --theme-color-meta: #0a101c;
+  --color-toggle-sun: #f0c56e;
+  --color-toggle-moon: #e8ebf4;
+  --theme-color-meta: #0b0d14;
 }
 
-/* ── Light · daylit atlas (intentional daylight, not an invert) ── */
+/* ── Light · soft white daylight ── */
 [data-theme="light"] {
-  --color-paper: oklch(97.5% 0.008 250);
-  --color-paper-2: oklch(95% 0.01 248);
-  --color-paper-3: oklch(92% 0.014 246);
-  --color-rule: oklch(86% 0.012 250);
-  --color-rule-2: oklch(90% 0.01 248);
-  --color-neutral: oklch(52% 0.016 248);
-  --color-muted: oklch(45% 0.018 250);
-  --color-ink: oklch(18% 0.022 250);
-  --color-ink-soft: oklch(40% 0.02 248);
-  --color-accent: oklch(52% 0.145 242);
-  --color-accent-soft: oklch(52% 0.145 242 / 0.14);
-  --color-focus: oklch(48% 0.16 242);
-  --color-accent-ink: oklch(98% 0.01 250);
-  --color-glass: oklch(100% 0.005 250 / 0.62);
-  --color-glass-border: oklch(100% 0.005 250 / 0.72);
-  --color-glow: oklch(70% 0.12 230 / 0.28);
-  --color-bloom-mid: oklch(78% 0.06 250 / 0.45);
-  --color-bloom-low: oklch(82% 0.05 220 / 0.4);
-  --color-orb-hi: oklch(100% 0.01 250 / 0.75);
-  --color-orb-lo: oklch(100% 0.01 250 / 0.2);
-  --color-orb-inset: oklch(100% 0.005 250 / 0.85);
-  --color-device-hi: oklch(100% 0.005 250 / 0.55);
-  --color-device-mid: oklch(100% 0.005 250 / 0.12);
-  --color-device-sheen: oklch(100% 0.005 250 / 0.4);
-  --color-noise-opacity: 0.035;
-  --shadow-nav: 0 10px 36px oklch(30% 0.04 250 / 0.1),
-    0 1px 0 oklch(100% 0 0 / 0.65) inset;
-  --shadow-device: 0 36px 80px oklch(30% 0.04 250 / 0.18),
-    0 8px 24px oklch(30% 0.03 250 / 0.1);
-  --shadow-device-floor: oklch(30% 0.04 250 / 0.2);
-  --shadow-card: 0 24px 60px oklch(30% 0.04 250 / 0.12);
-  --shadow-icon: 0 10px 24px oklch(30% 0.04 250 / 0.12);
-  --shadow-orb: 0 16px 36px oklch(30% 0.04 250 / 0.12);
-  --shadow-toggle: 0 0 20px oklch(78% 0.12 75 / 0.35);
-  --color-toggle-sun: oklch(68% 0.16 70);
-  --color-toggle-moon: oklch(42% 0.04 250);
-  --theme-color-meta: #f4f7fb;
+  --color-paper: #f5f7fa;
+  --color-paper-2: #eef1f7;
+  --color-paper-3: #e4e8f2;
+  --color-rule: color-mix(in srgb, #0b0d14 12%, transparent);
+  --color-rule-2: color-mix(in srgb, #0b0d14 8%, transparent);
+  --color-neutral: #5c6278;
+  --color-muted: #4a5166;
+  --color-ink: #0b0d14;
+  --color-ink-soft: #3a4056;
+  --color-accent: #2556e9;
+  --color-accent-soft: color-mix(in srgb, #2556e9 14%, transparent);
+  --color-focus: #3558e9;
+  --color-accent-ink: #f5f7fa;
+  --color-electric: #2556e9;
+  --color-indigo: #3558e9;
+  --color-violet: #7b4fe0;
+  --color-glass: color-mix(in srgb, #ffffff 72%, transparent);
+  --color-glass-border: color-mix(in srgb, #0b0d14 10%, transparent);
+  --color-glow: color-mix(in srgb, #2556e9 22%, transparent);
+  --color-bloom-mid: color-mix(in srgb, #956cf7 18%, transparent);
+  --color-bloom-low: color-mix(in srgb, #3558e9 16%, transparent);
+  --color-orbit-ring: color-mix(in srgb, #2556e9 22%, transparent);
+  --color-orb-hi: color-mix(in srgb, #ffffff 80%, transparent);
+  --color-orb-lo: color-mix(in srgb, #ffffff 25%, transparent);
+  --color-orb-inset: color-mix(in srgb, #ffffff 85%, transparent);
+  --color-device-hi: color-mix(in srgb, #ffffff 55%, transparent);
+  --color-device-mid: color-mix(in srgb, #ffffff 14%, transparent);
+  --color-device-sheen: color-mix(in srgb, #ffffff 40%, transparent);
+  --color-noise-opacity: 0.03;
+  --shadow-nav: 0 10px 36px color-mix(in srgb, #0b0d14 10%, transparent),
+    0 1px 0 color-mix(in srgb, #ffffff 65%, transparent) inset;
+  --shadow-device: 0 36px 80px color-mix(in srgb, #0b0d14 14%, transparent),
+    0 8px 24px color-mix(in srgb, #0b0d14 8%, transparent);
+  --shadow-device-floor: color-mix(in srgb, #0b0d14 16%, transparent);
+  --shadow-card: 0 24px 60px color-mix(in srgb, #0b0d14 10%, transparent);
+  --shadow-icon: 0 10px 24px color-mix(in srgb, #0b0d14 10%, transparent);
+  --shadow-orb: 0 16px 36px color-mix(in srgb, #0b0d14 10%, transparent);
+  --shadow-toggle: 0 0 20px color-mix(in srgb, #f0c56e 30%, transparent);
+  --color-toggle-sun: #d49a1a;
+  --color-toggle-moon: #4a5166;
+  --theme-color-meta: #f5f7fa;
 }

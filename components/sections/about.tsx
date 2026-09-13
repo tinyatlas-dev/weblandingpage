@@ -8,7 +8,7 @@ export function About() {
     <section id="about" className="section-pad relative scroll-mt-28">
       <div className="page-shell grid items-start gap-[var(--space-2xl)] md:grid-cols-2 md:gap-[var(--space-xl)] lg:gap-[var(--space-3xl)]">
         <ScrollReveal className="max-w-xl md:sticky md:top-28 lg:top-32">
-          <h2 className="text-balance text-[length:var(--text-display-s)] leading-[1.05] text-[var(--color-ink)]">
+          <h2 className="text-balance text-[length:var(--text-display-s)] font-semibold leading-[1.05] tracking-[-0.04em] text-[var(--color-ink)]">
             Small studio.
             <br />
             Exacting craft.
@@ -29,7 +29,7 @@ export function About() {
             {features.map((feature, index) => (
               <ScrollReveal key={feature.id} delay={index * 0.05}>
                 <li className="grid gap-2 py-6 sm:grid-cols-[minmax(0,9rem)_minmax(0,1fr)] sm:gap-8 sm:py-7">
-                  <h3 className="font-display text-[1.25rem] tracking-[-0.02em] text-[var(--color-ink)]">
+                  <h3 className="text-[1.2rem] font-semibold tracking-[-0.03em] text-[var(--color-ink)]">
                     {feature.title}
                   </h3>
                   <p className="text-[15px] leading-relaxed text-[var(--color-ink-soft)]">

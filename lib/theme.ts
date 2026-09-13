@@ -45,7 +45,7 @@ export function applyTheme(theme: ThemeMode, options?: { animate?: boolean }) {
   if (meta) {
     const color =
       getComputedStyle(root).getPropertyValue("--theme-color-meta").trim() ||
-      (theme === "dark" ? "#0a101c" : "#f4f7fb");
+      (theme === "dark" ? "#0b0d14" : "#f5f7fa");
     meta.setAttribute("content", color);
   }
 }

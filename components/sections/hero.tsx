@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { FloatingDevices } from "@/components/floating-devices";
+import { BrandOrbit } from "@/components/brand-orbit";
 import { HeroAtmosphere } from "@/components/mesh-gradient";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { SITE_NAME } from "@/lib/constants";
@@ -39,14 +39,14 @@ export function Hero() {
         >
           <motion.p
             variants={item}
-            className="font-display mb-4 text-[clamp(1.5rem,2.8vw+0.6rem,2.5rem)] leading-none tracking-[-0.03em] text-[var(--color-ink)] sm:mb-5"
+            className="mb-4 text-[clamp(1.35rem,2.4vw+0.55rem,2.15rem)] font-semibold leading-none tracking-[-0.04em] text-[var(--color-ink)] sm:mb-5"
           >
             {SITE_NAME}
           </motion.p>
 
           <motion.h1
             variants={item}
-            className="text-balance text-[length:var(--text-display)] leading-[1.05] text-[var(--color-ink)] sm:leading-[1.02]"
+            className="text-balance text-[length:var(--text-display)] font-semibold leading-[1.05] tracking-[-0.045em] text-[var(--color-ink)] sm:leading-[1.02]"
           >
             Apps for the quiet hours.
           </motion.h1>
@@ -65,13 +65,13 @@ export function Hero() {
           >
             <a
               href="#about"
-              className="inline-flex h-12 w-full items-center justify-center rounded-[var(--radius-pill)] bg-[var(--color-ink)] px-6 text-[15px] font-medium whitespace-nowrap text-[var(--color-paper)] transition-[transform,opacity] duration-[var(--dur-micro)] hover:opacity-90 active:translate-y-px lg:w-auto lg:min-w-[10.5rem]"
+              className="inline-flex h-12 w-full items-center justify-center rounded-[var(--radius-pill)] bg-[var(--color-electric)] px-6 text-[15px] font-semibold whitespace-nowrap text-[var(--color-accent-ink)] shadow-[0_0_0_0_transparent] transition-[transform,opacity,box-shadow] duration-[var(--dur-micro)] hover:opacity-95 hover:shadow-[0_0_36px_var(--color-glow)] active:translate-y-px lg:w-auto lg:min-w-[10.5rem]"
             >
               About us
             </a>
             <a
               href="#support"
-              className="glass-surface inline-flex h-12 w-full items-center justify-center rounded-[var(--radius-pill)] px-6 text-[15px] font-medium whitespace-nowrap text-[var(--color-ink)] transition-[transform,background-color] duration-[var(--dur-short)] hover:bg-[var(--color-paper-3)] active:translate-y-px lg:w-auto lg:min-w-[10.5rem]"
+              className="inline-flex h-12 w-full items-center justify-center rounded-[var(--radius-pill)] border border-[var(--color-glass-border)] bg-transparent px-6 text-[15px] font-medium whitespace-nowrap text-[var(--color-ink)] transition-[transform,background-color,border-color] duration-[var(--dur-short)] hover:border-[var(--color-violet)] hover:bg-[var(--color-paper-3)] active:translate-y-px lg:w-auto lg:min-w-[10.5rem]"
             >
               Contact
             </a>
@@ -88,7 +88,7 @@ export function Hero() {
             ease: easeOutExpo,
           }}
         >
-          <FloatingDevices compact />
+          <BrandOrbit />
         </motion.div>
       </div>
     </section>

@@ -30,7 +30,7 @@ export function Timeline() {
         <ScrollReveal className="max-w-md md:sticky md:top-28 md:self-start lg:top-32">
           <h2
             id="timeline-heading"
-            className="text-balance text-[length:var(--text-display-s)] leading-[1.05] text-[var(--color-ink)]"
+            className="text-balance text-[length:var(--text-display-s)] font-semibold leading-[1.05] tracking-[-0.04em] text-[var(--color-ink)]"
           >
             A path just beginning.
           </h2>
@@ -55,7 +55,7 @@ export function Timeline() {
                     <p className="text-[11px] font-medium tracking-[0.14em] text-[var(--color-accent)] uppercase">
                       {item.year}
                     </p>
-                    <h3 className="font-display mt-2 text-[1.5rem] tracking-[-0.02em] text-[var(--color-ink)]">
+                    <h3 className="mt-2 text-[1.45rem] font-semibold tracking-[-0.03em] text-[var(--color-ink)]">
                       {item.title}
                     </h3>
                     <p className="mt-2 max-w-[42ch] text-[15px] leading-relaxed text-[var(--color-ink-soft)]">

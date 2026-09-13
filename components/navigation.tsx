@@ -4,13 +4,15 @@ import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { BrandLogo } from "@/components/brand-logo";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useActiveSection } from "@/hooks/use-active-section";
-import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
+import { NAV_LINKS } from "@/lib/constants";
 import { cn, easeOutExpo } from "@/lib/utils";
 
 export function Navigation() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const active = useActiveSection();
 
   useEffect(() => {
@@ -30,93 +32,92 @@ export function Navigation() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-[200] flex justify-center px-[var(--page-gutter)] pt-[max(0.75rem,env(safe-area-inset-top))] sm:pt-[var(--space-md)]">
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-[200] transition-[background-color,border-color,backdrop-filter] duration-[var(--dur-short)]",
+        scrolled || open
+          ? "border-b border-[var(--color-rule)] bg-[color-mix(in_srgb,var(--color-paper)_82%,transparent)] backdrop-blur-xl"
+          : "border-b border-transparent bg-transparent"
+      )}
+    >
       <nav
-        className={cn(
-          "pointer-events-auto glass-surface inline-flex max-w-[min(46rem,100%)] items-center gap-2 rounded-[var(--radius-pill)] px-2 py-2 shadow-[var(--shadow-nav)] sm:gap-3 sm:px-3",
-          open &&
-            "max-lg:w-full max-lg:flex-col max-lg:items-stretch max-lg:rounded-[1.5rem] max-lg:p-3"
-        )}
+        className="page-shell flex items-center justify-between gap-4 py-3 sm:py-4"
         aria-label="Primary"
       >
-        <div className="flex w-full min-w-0 items-center justify-between gap-3 lg:w-auto lg:justify-start">
-          <Link
-            href="/"
-            className="group flex min-w-0 shrink items-center gap-2.5 rounded-[var(--radius-pill)] px-2 py-1.5 text-[14px] font-medium tracking-tight text-[var(--color-ink)] transition-opacity duration-[var(--dur-short)] hover:opacity-80"
-          >
-            <span
-              aria-hidden
-              className="relative flex size-7 shrink-0 items-center justify-center overflow-hidden rounded-[9px] bg-[var(--color-paper-3)] shadow-[0_0_24px_var(--color-glow)]"
-            >
-              <span className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,var(--color-accent),transparent_58%)] opacity-80" />
-              <span className="relative size-1.5 rounded-full bg-[var(--color-ink)]" />
-            </span>
-            <span className="font-display truncate text-[1.05rem] tracking-[-0.02em]">
-              {SITE_NAME}
-            </span>
-          </Link>
+        <Link
+          href="/"
+          className="relative z-10 min-w-0 rounded-[var(--radius-md)] transition-opacity duration-[var(--dur-short)] hover:opacity-80"
+        >
+          <BrandLogo size={30} priority />
+        </Link>
 
-          <div className="flex shrink-0 items-center gap-1.5 lg:hidden">
-            <ThemeToggle />
-            <button
-              type="button"
-              className="inline-flex size-10 items-center justify-center rounded-full text-[var(--color-ink)] transition-colors duration-[var(--dur-micro)] hover:bg-[var(--color-paper-3)]"
-              aria-expanded={open}
-              aria-controls="mobile-menu"
-              aria-label={open ? "Close menu" : "Open menu"}
-              onClick={() => setOpen((value) => !value)}
-            >
-              {open ? <X className="size-5" /> : <Menu className="size-5" />}
-            </button>
-          </div>
-        </div>
+        <div className="flex items-center gap-2">
+          <ul className="hidden items-center gap-1 lg:flex">
+            {NAV_LINKS.map((link) => {
+              const sectionId = link.href.startsWith("#")
+                ? link.href.slice(1)
+                : "";
+              const isActive = sectionId !== "" && active === sectionId;
 
-        <ul className="hidden items-center gap-0.5 lg:flex">
-          {NAV_LINKS.map((link) => {
-            const sectionId = link.href.startsWith("#")
-              ? link.href.slice(1)
-              : "";
-            const isActive = sectionId !== "" && active === sectionId;
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      "block whitespace-nowrap rounded-[var(--radius-pill)] px-3.5 py-2 text-[13px] font-medium tracking-[0.04em] uppercase transition-colors duration-[var(--dur-micro)]",
+                      isActive
+                        ? "bg-[var(--color-paper-3)] text-[var(--color-ink)]"
+                        : "text-[var(--color-ink-soft)] hover:text-[var(--color-ink)]"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
 
-            return (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={cn(
-                    "block whitespace-nowrap rounded-[var(--radius-pill)] px-3.5 py-2 text-[13px] font-medium transition-colors duration-[var(--dur-micro)]",
-                    isActive
-                      ? "bg-[var(--color-paper-3)] text-[var(--color-ink)]"
-                      : "text-[var(--color-ink-soft)] hover:text-[var(--color-ink)]"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-
-        <div className="hidden items-center gap-2 lg:flex">
           <ThemeToggle />
+
           <a
             href="#about"
-            className="inline-flex h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-[var(--radius-pill)] bg-[var(--color-ink)] px-4 text-[13px] font-medium text-[var(--color-paper)] transition-[transform,opacity] duration-[var(--dur-micro)] hover:opacity-90 active:translate-y-px"
+            className="hidden h-10 items-center justify-center rounded-[var(--radius-pill)] bg-[var(--color-electric)] px-4 text-[13px] font-semibold text-[var(--color-accent-ink)] transition-[transform,opacity,box-shadow] duration-[var(--dur-micro)] hover:opacity-95 hover:shadow-[0_0_28px_var(--color-glow)] active:translate-y-px lg:inline-flex"
           >
             About us
           </a>
-        </div>
 
-        <AnimatePresence>
-          {open ? (
-            <motion.div
-              id="mobile-menu"
-              initial={{ opacity: 0, y: -6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.22, ease: easeOutExpo }}
-              className="flex w-full flex-col gap-1 lg:hidden"
-            >
+          <button
+            type="button"
+            className="inline-flex size-10 items-center justify-center rounded-full text-[var(--color-ink)] transition-colors duration-[var(--dur-micro)] hover:bg-[var(--color-paper-3)] lg:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((value) => !value)}
+          >
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
+        </div>
+      </nav>
+
+      <AnimatePresence>
+        {open ? (
+          <motion.div
+            id="mobile-menu"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.22, ease: easeOutExpo }}
+            className="border-t border-[var(--color-rule)] bg-[var(--color-paper)] lg:hidden"
+          >
+            <div className="page-shell flex flex-col gap-1 py-4">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
@@ -130,14 +131,14 @@ export function Navigation() {
               <a
                 href="#about"
                 onClick={() => setOpen(false)}
-                className="mt-1 flex h-12 items-center justify-center rounded-[var(--radius-pill)] bg-[var(--color-ink)] text-[15px] font-medium text-[var(--color-paper)]"
+                className="mt-2 flex h-12 items-center justify-center rounded-[var(--radius-pill)] bg-[var(--color-electric)] text-[15px] font-semibold text-[var(--color-accent-ink)]"
               >
                 About us
               </a>
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
-      </nav>
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 }

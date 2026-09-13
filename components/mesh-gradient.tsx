@@ -69,19 +69,19 @@ function FloatingGeometry() {
   const shapes = [
     {
       className:
-        "left-[6%] top-[18%] size-14 rounded-[1.25rem] sm:size-16 md:left-[4%]",
+        "left-[4%] top-[20%] size-16 rounded-full border border-[var(--color-orbit-ring)] sm:size-[4.5rem] md:left-[2%]",
       delay: 0,
-      rotate: 16,
+      rotate: 12,
     },
     {
       className:
-        "right-[8%] top-[22%] size-11 rounded-full sm:size-12 md:right-[6%]",
+        "right-[6%] top-[18%] size-12 rounded-full border border-[var(--color-orbit-ring)] sm:size-14 md:right-[4%]",
       delay: 1.1,
-      rotate: -10,
+      rotate: -16,
     },
     {
       className:
-        "left-[12%] bottom-[18%] hidden size-9 rounded-2xl sm:block",
+        "left-[14%] bottom-[16%] hidden size-10 rounded-full border border-[var(--color-orbit-ring)] sm:block",
       delay: 0.5,
       rotate: 8,
     },
@@ -89,10 +89,11 @@ function FloatingGeometry() {
 
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,var(--color-glow),transparent_34%),radial-gradient(circle_at_82%_28%,var(--color-bloom-mid),transparent_36%)]" />
       {shapes.map((shape, index) => (
         <motion.div
           key={index}
-          className={`absolute glass-orb ${shape.className}`}
+          className={`absolute bg-[radial-gradient(circle_at_30%_30%,var(--color-glow),transparent_70%)] ${shape.className}`}
           style={{ rotate: shape.rotate }}
           animate={
             reduced

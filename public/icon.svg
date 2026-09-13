@@ -1,6 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="16" fill="#0B1220"/>
-  <circle cx="32" cy="30" r="12" stroke="#7DD3FC" stroke-width="2.5"/>
-  <circle cx="32" cy="30" r="4" fill="#A78BFA"/>
-  <path d="M18 46c4-6 10-9 14-9s10 3 14 9" stroke="#67E8F9" stroke-width="2" stroke-linecap="round"/>
+  <rect width="64" height="64" rx="16" fill="#0B0D14"/>
+  <defs>
+    <linearGradient id="g" x1="14" y1="12" x2="52" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2556E9"/>
+      <stop offset="0.55" stop-color="#3558E9"/>
+      <stop offset="1" stop-color="#956CF7"/>
+    </linearGradient>
+  </defs>
+  <path
+    d="M32 14c6.2 0 10.8 2.8 13.4 7.2 2.4 4 2.6 9.2.2 13.4-1.6 2.8-4.2 5-7.4 6.2 3.8 1.4 6.6 4.2 7.8 8.2.8 2.8.4 5.8-1.2 8.2-2.4 3.6-6.6 5.6-11.2 5.2-4.2-.4-7.8-2.8-9.8-6.4-1.6 3.2-4.6 5.4-8.4 5.8-5 .6-9.6-2.4-11-7.2-1-3.4 0-7 2.6-9.6 2.2-2.2 5.2-3.4 8.4-3.2-3.4-2.2-5.6-5.6-5.8-9.8-.2-5.4 3.4-10.2 8.6-11.4C21.2 15.2 26.4 14 32 14Z"
+    fill="url(#g)"
+    opacity="0.95"
+  />
+  <circle cx="32" cy="32" r="7.5" fill="#0B0D14"/>
+  <circle cx="32" cy="32" r="3.2" fill="#956CF7"/>
 </svg>

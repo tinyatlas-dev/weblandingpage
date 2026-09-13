@@ -53,7 +53,7 @@ export function Philosophy() {
                   delay: reduced ? 0 : index * 0.1,
                   ease: easeOutExpo,
                 }}
-                className="font-display block text-[clamp(2.25rem,6vw+0.75rem,6rem)] leading-[0.94] tracking-[-0.03em] text-[var(--color-ink)]"
+                className="block text-[clamp(2.25rem,6vw+0.75rem,6rem)] font-semibold leading-[0.94] tracking-[-0.045em] text-[var(--color-ink)]"
               >
                 {word}
               </motion.span>
