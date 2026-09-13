@@ -13,7 +13,7 @@ export function JsonLd() {
     url: SITE_URL,
     email: CONTACT_EMAIL,
     description: SITE_DESCRIPTION,
-    logo: `${SITE_URL}/icon.png`,
+    logo: `${SITE_URL}/apple-touch-icon.png`,
     contactPoint: {
       "@type": "ContactPoint",
       email: CONTACT_EMAIL,

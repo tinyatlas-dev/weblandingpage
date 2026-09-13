@@ -78,10 +78,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icon.png", type: "image/png" },
-      { url: "/brand/mark.png", type: "image/png" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon.svg", type: "image/svg+xml" },
     ],
-    apple: [{ url: "/icon.png" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   category: "technology",
   other: {
