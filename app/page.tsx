@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
+import { PageMascot } from "@/components/page-mascot";
 import { About } from "@/components/sections/about";
 import { Hero } from "@/components/sections/hero";
 import { Philosophy } from "@/components/sections/philosophy";
@@ -18,6 +19,7 @@ export default function HomePage() {
         <Support />
       </main>
       <Footer />
+      <PageMascot />
     </>
   );
 }
