@@ -19,18 +19,26 @@ export const SITE_URL = resolveSiteUrl();
 
 export const SITE_NAME = "Tiny Atlas";
 
+export const SITE_TITLE = `${SITE_NAME} — AI-Native Software Studio`;
+
 export const SITE_DESCRIPTION =
-  "Independent mobile app studio crafting beautiful, fast, and delightful applications for everyday life.";
+  "Tiny Atlas is an independent software studio building mobile apps, AI-powered tools, productivity software, and casual games.";
 
 export const CONTACT_EMAIL = "info@tinyatlas.online";
 
+export const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=com.tinyhabit.tracker";
+
 export const NAV_LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#support", label: "Support" },
-  { href: "/privacy", label: "Privacy" },
+  { href: "/#products", label: "Products" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ] as const;
 
 export const FOOTER_LINKS = [
+  { href: "/#products", label: "Products" },
+  { href: "/#about", label: "About" },
   { href: "/privacy", label: "Privacy" },
-  { href: "#support", label: "Support" },
+  { href: "/terms", label: "Terms" },
+  { href: "/#contact", label: "Contact" },
 ] as const;

@@ -1,14 +1,25 @@
+import { PLAY_STORE_URL } from "@/lib/constants";
+
 export type AppItem = {
   id: string;
   name: string;
   screenshot: string;
 };
 
-export type FeatureItem = {
+export type StudioFact = {
   id: string;
-  title: string;
+  label: string;
+  value: string;
+  href?: string;
+};
+
+export type ProductItem = {
+  id: string;
+  name: string;
   description: string;
-  icon: "swift" | "android" | "design" | "performance" | "privacy";
+  status: string;
+  cta: string;
+  href: string;
 };
 
 export type TimelineItem = {
@@ -36,38 +47,42 @@ export const apps: AppItem[] = [
   },
 ];
 
-export const features: FeatureItem[] = [
+export const product: ProductItem = {
+  id: "tiny-habit-tracker",
+  name: "Tiny Habit Tracker Offline",
+  description:
+    "A simple, private habit tracker designed for everyday consistency.",
+  status: "Available on Google Play",
+  cta: "View on Google Play",
+  href: PLAY_STORE_URL,
+};
+
+export const studioFacts: StudioFact[] = [
+  { id: "founded", label: "Founded", value: "2026" },
+  { id: "studio", label: "Studio", value: "Independent" },
   {
-    id: "swiftui",
-    title: "SwiftUI",
-    description: "Native iOS experiences with fluid motion and system polish.",
-    icon: "swift",
+    id: "product",
+    label: "First product",
+    value: "Tiny Habit Tracker Offline",
   },
   {
-    id: "android",
-    title: "Android",
-    description: "Thoughtful Material Design with performance as a default.",
-    icon: "android",
-  },
-  {
-    id: "design",
-    title: "Beautiful Design",
-    description: "Every pixel considered — typography, spacing, and delight.",
-    icon: "design",
-  },
-  {
-    id: "performance",
-    title: "Performance",
-    description: "Instant launches. Smooth scrolling. Battery that lasts.",
-    icon: "performance",
-  },
-  {
-    id: "privacy",
-    title: "Privacy First",
-    description: "Your data stays yours. No tracking. No compromises.",
-    icon: "privacy",
+    id: "store",
+    label: "Available",
+    value: "Google Play",
+    href: PLAY_STORE_URL,
   },
 ];
+
+export const aiPractices = [
+  "Product and market research",
+  "Competitor analysis",
+  "User review and feedback analysis",
+  "Product ideation",
+  "Software development with Claude Code",
+  "ASO and marketing",
+  "Product and growth analysis",
+  "AI agent workflows",
+] as const;
 
 export const timeline: TimelineItem[] = [
   {
@@ -75,20 +90,20 @@ export const timeline: TimelineItem[] = [
     year: "2026",
     title: "Tiny Atlas founded",
     description:
-      "A new studio with a simple belief: software can feel calm and human.",
+      "Independent software studio focused on useful, focused digital products.",
   },
   {
-    id: "building",
+    id: "shipped",
     year: "Now",
-    title: "Building in public",
+    title: "First product shipped",
     description:
-      "Sketching the first products — small tools made with care, not haste.",
+      "Tiny Habit Tracker Offline is now available on Google Play.",
   },
   {
     id: "next",
     year: "Next",
-    title: "First release ahead",
+    title: "Building the next products",
     description:
-      "We're just getting started. The first app is on the way.",
+      "Expanding our portfolio of mobile apps, AI-powered tools, and casual games.",
   },
 ];

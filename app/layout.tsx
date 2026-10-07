@@ -8,6 +8,7 @@ import {
   CONTACT_EMAIL,
   SITE_DESCRIPTION,
   SITE_NAME,
+  SITE_TITLE,
   SITE_URL,
 } from "@/lib/constants";
 import { themeInitScript } from "@/lib/theme";
@@ -23,7 +24,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Beautiful mobile apps`,
+    default: SITE_TITLE,
     template: `%s · ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
@@ -33,12 +34,14 @@ export const metadata: Metadata = {
   publisher: SITE_NAME,
   keywords: [
     "Tiny Atlas",
+    "software studio",
+    "AI-native",
     "mobile apps",
-    "indie studio",
-    "iOS",
+    "AI tools",
+    "productivity software",
+    "casual games",
+    "Tiny Habit Tracker Offline",
     "Android",
-    "SwiftUI",
-    "app design",
   ],
   alternates: {
     canonical: "/",
@@ -48,20 +51,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — Beautiful mobile apps`,
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     images: [
       {
         url: "/og.svg",
         width: 1200,
         height: 630,
-        alt: "Tiny Atlas — Beautiful software. Crafted with care.",
+        alt: "Tiny Atlas — AI-native software studio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — Beautiful mobile apps`,
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     images: ["/og.svg"],
   },

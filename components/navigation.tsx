@@ -62,9 +62,9 @@ export function Navigation() {
         <div className="flex items-center gap-2">
           <ul className="hidden items-center gap-1 lg:flex">
             {NAV_LINKS.map((link) => {
-              const sectionId = link.href.startsWith("#")
-                ? link.href.slice(1)
-                : "";
+              const hashIndex = link.href.indexOf("#");
+              const sectionId =
+                hashIndex >= 0 ? link.href.slice(hashIndex + 1) : "";
               const isActive = sectionId !== "" && active === sectionId;
 
               return (
@@ -87,12 +87,12 @@ export function Navigation() {
 
           <ThemeToggle />
 
-          <a
-            href="#about"
+          <Link
+            href="/#products"
             className="hidden h-10 items-center justify-center rounded-[var(--radius-pill)] bg-[var(--color-electric)] px-4 text-[13px] font-semibold text-[var(--color-accent-ink)] transition-[transform,opacity,box-shadow] duration-[var(--dur-micro)] hover:opacity-95 hover:shadow-[0_0_28px_var(--color-glow)] active:translate-y-px lg:inline-flex"
           >
-            About us
-          </a>
+            View product
+          </Link>
 
           <button
             type="button"
@@ -128,13 +128,13 @@ export function Navigation() {
                   {link.label}
                 </Link>
               ))}
-              <a
-                href="#about"
+              <Link
+                href="/#products"
                 onClick={() => setOpen(false)}
                 className="mt-2 flex h-12 items-center justify-center rounded-[var(--radius-pill)] bg-[var(--color-electric)] text-[15px] font-semibold text-[var(--color-accent-ink)]"
               >
-                About us
-              </a>
+                View product
+              </Link>
             </div>
           </motion.div>
         ) : null}

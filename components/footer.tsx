@@ -19,6 +19,9 @@ export function Footer() {
               <BrandLogo size={26} />
             </Link>
             <p className="mt-3 text-[var(--text-sm)] text-[var(--color-ink-soft)]">
+              Independent software studio · Founded 2026
+            </p>
+            <p className="mt-1 text-[var(--text-sm)] text-[var(--color-ink-soft)]">
               © 2026 {SITE_NAME}
             </p>
           </div>

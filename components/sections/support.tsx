@@ -6,12 +6,15 @@ import { CONTACT_EMAIL } from "@/lib/constants";
 
 export function Support() {
   return (
-    <section id="support" className="section-pad relative scroll-mt-28">
+    <section id="contact" className="section-pad relative scroll-mt-28">
       <div className="page-shell">
         <ScrollReveal>
           <div className="grid items-end gap-[var(--space-xl)] border-t border-[var(--color-rule)] pt-[var(--space-2xl)] md:grid-cols-[1.1fr_0.9fr] md:gap-[var(--space-xl)] lg:gap-[var(--space-3xl)]">
             <div className="min-w-0">
-              <h2 className="text-balance text-[length:var(--text-display-s)] font-semibold leading-[1.05] tracking-[-0.04em] text-[var(--color-ink)]">
+              <p className="text-[11px] font-medium tracking-[0.14em] text-[var(--color-accent)] uppercase">
+                Contact
+              </p>
+              <h2 className="mt-3 text-balance text-[length:var(--text-display-s)] font-semibold leading-[1.05] tracking-[-0.04em] text-[var(--color-ink)]">
                 Need a hand?
               </h2>
               <p className="mt-5 max-w-[36ch] text-[length:var(--text-lg)] leading-[1.7] text-[var(--color-ink-soft)]">
