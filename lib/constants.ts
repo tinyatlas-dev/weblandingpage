@@ -22,7 +22,7 @@ export const SITE_NAME = "Tiny Atlas";
 export const SITE_DESCRIPTION =
   "Independent mobile app studio crafting beautiful, fast, and delightful applications for everyday life.";
 
-export const CONTACT_EMAIL = "tinyatlas.apps@gmail.com";
+export const CONTACT_EMAIL = "info@tinyatlas.online";
 
 export const NAV_LINKS = [
   { href: "#about", label: "About" },
